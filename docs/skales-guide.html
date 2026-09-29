@@ -704,7 +704,7 @@
       <div class="logo-mark">S</div>
       <div>
         <div class="logo-text">Skales</div>
-        <div class="logo-version">v<span data-skales-version>12.9.41</span> User Guide</div>
+        <div class="logo-version">v<span data-skales-version>12.9.45</span> User Guide</div>
       </div>
     </a>
 
@@ -889,7 +889,7 @@
 
     <!-- Hero: the front page only -->
     <div class="hero">
-      <div class="hero-badge">📖 Official Documentation &middot; v<span data-skales-version>12.9.41</span></div>
+      <div class="hero-badge">📖 Official Documentation &middot; v<span data-skales-version>12.9.45</span></div>
       <h1>Skales <span>User Guide</span></h1>
       <p>Your personal AI operating system. Set a goal, automate, create, all running locally on your machine.</p>
     </div>
@@ -1206,6 +1206,9 @@
       </ul>
       <p>Plugin authors find every call, with examples, in the DevKit under <em>docs/plugins.md</em>.</p>
 
+      <h3>Three ways to work with a plugin page</h3>
+      <p>Under every plugin page you choose <strong>Manual</strong>, <strong>With AI</strong> or <strong>AI does it</strong>, and the plugin remembers which one you picked. Manual hides the plugin&rsquo;s AI buttons. With AI keeps them and adds a line under the page where you can ask the plugin for anything else. AI does it takes a whole job at once, with example jobs to start from: the AI does the work, you approve what it prepared, and every step it takes stays correctable on its own rather than running to the end unseen. E-Learning is the first plugin built with all three.</p>
+
       <h3>Taking one with you, and handing one on</h3>
       <p>The download arrow on a plugin's row packages it as a <strong>.skplugin</strong> file. Because that file is meant to be handed to somebody - carried to your other machine, published, or sold - it asks first for the things anyone installing it will want to read: who it is published as, what it does in one sentence, and the licence and your link if there are any. Those answers go into the packaged copy; the one installed here is left alone unless you tick the box.</p>
       <p>What travels is the plugin: its manifest, its pages, its own tools, its assets and its README. What does not travel is <strong>everything the plugin saved while you used it</strong>. Your reading list, your briefs, its memory - those stay on this machine, and the dialog lists both sets so you do not have to take that on trust. Before it writes the file it also looks through the pages and tools for things that read as yours rather than the plugin's - a home folder path, an email address, something shaped like an API key - and shows you what it found. It changes nothing; you decide.</p>
@@ -1221,6 +1224,8 @@
       <p>An <strong>invalid</strong> signature refuses the install outright, with the reason. A package that carries a signature that does not check out is a package somebody changed after it was published, and the fact that the claim cannot be verified is exactly why it must not be installed.</p>
       <p>An unsigned package still installs. Signing is a way to say more, not a new bar every author has to clear - and the card says plainly that nobody can be named for it.</p>
       <div class="tip"><strong>Signing your own.</strong> Run <code>node scripts/plugin-sign.js keygen</code> once. It writes a private key into your data folder, readable only by you, and prints the public half as one line. The private key never leaves the machine and Skales never sends it anywhere. From then on every <strong>.skplugin</strong> you export is signed, and the export tells you whether it was. Put the public line into your plugin's <code>publicKey</code> field in the directory, and everybody installing your release gets the named check rather than the anonymous one.</div>
+      <h3>Business plugins</h3>
+      <p>Some plugins, like E-Learning, are made by Skales for businesses. They are not in the public directory and not inside the app. When your Skales account includes one, its next version appears on the Plugins page with the same card every update shows: what changes, which of your files stay, and a button to confirm. Skales only installs it when it is signed with the Skales key the app carries, so the delivery path cannot slip in anything else. Without the licence the plugin keeps working as it is and the page says why there is no update; nothing you made with it is ever part of an update.</p>
     </section>
 
     <section id="business">
@@ -1349,6 +1354,11 @@
       <h3>Agents</h3>
       <p>Switch between custom AI agents using the persona picker at the top of the chat. Each agent has its own personality, system prompt, and session history.</p>
 
+      <h3>Where the built-in agents' prompts come from</h3>
+      <p>The Code Assistant, Data Analyst, Strategic Planner, CTO, Research Analyst and Project Manager, most roles of the team presets and the agents of the organization templates run on detailed specialist prompts from the open <strong>agency-agents</strong> library (MIT). Each such card carries a small line, "Prompt: agency-agents (MIT)", that links to the file the prompt comes from. Skales adds a short block of its own to each: the name the agent appears under, its part in the team, and the rule to answer in the language you write in. If you edit a prompt, it stays exactly as you wrote it; if you only pinned a model on a built-in agent, it keeps your model and follows the library prompt.</p>
+      <p>These prompts are longer than the old ones, around ten times. Within a run the prompt is cached by the provider, so the steps after the first do not pay for it again.</p>
+      <p>The rest of the library, a few hundred specialists from engineering to marketing, finance and game development, stays on disk. Ask for a specialist in any chat and Skales finds one, reads its method for your task, or hands the task to a sub-agent that works as that specialist and waits for the answer. Handing over asks first, the same way any sub-agent does.</p>
+
       <h3>Attached Files</h3>
       <p>Drag and drop or click the paperclip icon to attach images, PDFs, or code files. Vision-capable models can analyze screenshots and diagrams.</p>
 
@@ -1374,8 +1384,9 @@
       <p>One deliberate exception: a file written by a <strong>script</strong> Skales ran gets no card, because nothing is watching a script's output closely enough to promise the card is right. In that case Skales tells you in words where it put the file.</p>
 
       <h3>Sending while it is still writing</h3>
-      <p>You no longer have to wait for the answer before typing the next thing. Messages you send while Skales is working are <strong>collected and answered together, as one turn</strong>, in the order you wrote them — not as one answer per message, which used to mean three impatient messages became three answers to three halves of a question, and three times the wait.</p>
-      <p>A bar above the composer shows how many are waiting, lists them, and lets you remove one or clear them all before they go. Up to twenty can queue. If a run ends without the queue being taken up, a card offers to hand the whole queue back to you rather than dropping it. The same rule holds everywhere Skales listens — a run on the server, Telegram, WhatsApp and the phone all fold a queue into one answer.</p>
+      <p>You no longer have to wait for the answer before typing the next thing. A message you send while Skales is working <strong>reaches the running turn at its next step</strong>: after the tool call in flight returns, Skales reads it and keeps going with it, without starting over. Several messages typed in a row arrive together as one, in the order you wrote them. Pictures ride along.</p>
+      <p>If you would rather have your message wait, choose <strong>After the turn</strong> in the strip above the composer (or in Settings → Assistant → Working style &amp; Autonomy → Messages while Skales works). Then it runs as a turn of its own once the current one has finished, in line with anything else you queued. Stop always stops at once; lines waiting for after the turn stay and the strip offers <strong>Go on</strong>.</p>
+      <p>The strip lists every waiting line as <em>waiting</em> and, for a moment after Skales takes it, as <em>delivered</em>. You can edit or remove a line while it waits. The list lives with the run, not with the window: it is still there after a reload or a restart, and the chat window, Iris, the Buddy and your phone all put their lines into the same one.</p>
       <p>What is waiting goes out once the run is really over. That is not the same moment as the composer unlocking: a turn that stops responding frees the composer so you are not stuck, while the run itself carries on, and a queued message sent into that gap used to arrive as a second answer to a question that already had one. If a queued message cannot be sent at all, it is tried once more and then stays in the bar saying so, with <strong>Try again</strong> beside it, rather than being retried silently.</p>
 
       <h3>Stopping, and correcting what you asked</h3>
@@ -1404,6 +1415,12 @@
 
       <h3>What a single answer cost</h3>
       <p>The meter answers &ldquo;what has this conversation cost&rdquo;, never &ldquo;which answer cost it&rdquo; &mdash; and a screenshot step that charges a quarter of a dollar disappears into a session total. <strong>Analyze</strong>, opened from the bar under an answer, carries the same sum the meter carries in its header, and every turn in its log names its own price beside its tokens. The report you copy as text carries both figures. A provider that reported no price says so, because a zero reads as an answer that was free.</p>
+
+      <h3>Every step and its price</h3>
+      <p>In Flow, the price in the head of the conversation opens its <strong>steps</strong>: grouped by the message that started them, each with the tools it called, whether they worked, how long it took and what it cost. Team runs list each member, and an action waiting for your approval stands in the same list. The chat shows the same steps in <strong>Analyze</strong>. The steps always add up to the price under the composer and to the price the phone shows, including what an undo took out of the conversation. The members and the coordinator of a team run count in that price too.</p>
+
+      <h3>Checked before it is paid for</h3>
+      <p>A Flow start checks first whether every planned step has what it needs: the tool, the service key, the local renderer for a motion video or a cut, a music service when the brief asks for music. When something is missing, Flow says which step needs what, links to the place in Settings where it is set up, and names the way around it where there is one, such as OpenRouter. No model is asked and nothing is charged for a start that cannot run.</p>
 
       <h3>The session ceiling</h3>
       <p>A conversation can stop itself before it spends more than you meant it to. <strong>Settings &rsaquo; Goals &rsaquo; Session budget</strong> sets the ceiling; a fresh installation starts at five dollars, and a machine that already has settings keeps exactly what it had. <code>0</code> means no ceiling.</p>
@@ -1477,6 +1494,9 @@
 
       <h3>Word files and editable presentations</h3>
       <p>Ask for a concept, a handout or a letter as a Word file and Skales writes a real <strong>.docx</strong> from the text, with its headings, lists, tables and page breaks. Ask for slides and it builds an <strong>editable PowerPoint</strong>: every title and bullet is a real text box, pictures and shapes sit where they were placed, and your speaker notes come along. Anything that could not be placed is named in the answer rather than quietly moved.</p>
+
+      <h3>Business letters with your letterhead</h3>
+      <p>Ask for a letter and Skales can write it onto your own letter paper: a running header and footer, an address window, references, fold and hole marks, and page numbers, editable afterwards in Word and in LibreOffice alike. The logo keeps its proportions wherever it sits on the page, and asking for only a header or only page numbers leaves the rest of the page exactly as it was.</p>
 
       <h3>Any page to PDF, PowerPoint or Word</h3>
       <p>The export that Flow&rsquo;s buttons run works for any folder too. Point Skales at an HTML page, a slide deck or a document in your project and it renders it the way the preview shows it, with its styles, fonts and pictures: a deck becomes one PDF page per slide (with a speaker-notes page after each on request) or a PowerPoint, and a document becomes an A4 PDF or an editable Word file.</p>
@@ -1553,6 +1573,11 @@
       </table>
 
       <p>Manage memories in <strong>Settings → Memory</strong>. You can view, edit, or delete individual entries. Up to 5 relevant memories are automatically recalled per conversation.</p>
+
+      <h3>Learning as you work</h3>
+      <p>Every ten of your messages or ten tool steps, Skales takes a short look back on the helper model and keeps what is worth keeping: facts about you, how-to lessons, and <strong>procedures</strong> — step-by-step instructions for a kind of task, which it finds and follows next time. Your corrections come first: "shorter, and always as a table" ends up in the procedure for that task. When something was kept, one quiet line in the chat says <em>Memory updated</em> and links to it. Nothing is ever kept from an Incognito conversation, and the look-back's cost is part of the conversation's price.</p>
+      <p>Finished conversations are also summarised during the day, hourly and at most 24 a day, so "what did we do this morning" has an answer before the night's Dreaming. Both switches are in Settings → Memory → Learning.</p>
+      <p>Procedures Skales wrote show on the Custom Skills page as <em>written by Skales</em>, with their version and how often they were read; <strong>Undo last change</strong> puts the previous text back. A skill you brought is only changed when you ask for it. Three commands open the door by hand: <code>/learn</code> followed by a folder, a link, a PDF or nothing ("what we just did") turns it into a procedure; <code>/refine</code> runs the look-back now; <code>/btw</code> asks a side question without disturbing a turn that is working.</p>
 
       <h3>Searching your memory</h3>
       <p>The Memory page opens with a <strong>search box over everything stored</strong> — topic names and the text inside them, across the index, the topic files and the saved short-term, long-term and episodic records, with the matches highlighted. A <strong>Meaning</strong> toggle appears when you have an embedding provider configured, so you can search by what you meant rather than the exact words. Skales itself can search its memory the same way, so it can find a note it wrote months ago without you naming the topic, and asking for a topic that does not exist answers with the closest ones that do.</p>
@@ -1934,6 +1959,9 @@
         <div class="card"><div class="card-title">Image Gen</div><div class="card-desc">Generate images via Replicate or local endpoints.</div></div>
       </div>
 
+      <h3>Skill packs</h3>
+      <p>Reviewed skill packs bring craft into Flow and the chat: motion design, cutting your own footage into short-form video, frontend design, print and brand work, Office documents &mdash; designed PowerPoints and letters on your letter paper &mdash; and persistent research. They load by themselves in the Flow mode or the conversation where they help, rather than sitting on a page waiting to be switched on. A skill built from an open-source project is rewritten in Skales&rsquo; own words, names its sources on the skill card and in the notices, and ships only after a person has reviewed the rewrite.</p>
+
       <h3>Custom Skills</h3>
       <p>Build your own skills in <strong>Settings → Extensions → Custom Skills</strong>. Describe what the skill should do, and Skales generates the implementation. Skills are stored as JSON and can be exported and shared.</p>
       <p style="color: var(--muted); font-size: 0.875rem;">A skill is <em>one tool</em>. If what you want is a screen of your own with its own storage, and possibly an agent working behind it, that is a <a href="#plugins">plugin</a> - and you can install one from the directory in two clicks or ask for one in a chat.</p>
@@ -2100,6 +2128,8 @@
 
       <h3>Starting a session</h3>
       <p>Three ways in: <strong>Open project</strong> picks a folder on this computer, <strong>Clone repo</strong> takes an address (an ssh address included) and clones it into your workspace, and the sessions you had open before are listed underneath with their branch and the size of the change in each. The status line along the bottom always says what is going on: idle or working, which folder, which branch, and how many lines have been added and removed.</p>
+      <h3>Handing work to Code from a chat</h3>
+      <p>You do not have to open the window first. In any chat &mdash; on the computer, or in the Remote chat on your paired phone &mdash; say what you want done and in which folder (&ldquo;let Code fix the pause menu in my Star Wars project&rdquo;). Skales asks once, opens a coding session on that folder with the task, and the Code window opens on it while your chat stays where it is. If you did not name a folder, it asks which one. Later in the same chat you can send that session a follow-up or a correction: while it is working, the message waits in its queue and is read at its next step, just as if you had typed it into the Code window. The chat can also tell you where a session stands, what it answered last and which files it changed. One thing stays in the session: when it stops to ask for permission, you answer in the Code window (or on the phone&rsquo;s Code screen) &mdash; the chat tells you it is waiting and links you straight to it.</p>
 
       <h3>The four modes, and what each may do</h3>
       <p>You pick the leash when the session starts, in the box you type into. It is the session that decides, not your global Safety Mode: set the rest of Skales to Unrestricted and a session set to <strong>Code</strong> still asks, because that is what choosing Code meant.</p>
@@ -2142,6 +2172,7 @@
       <h3>When a run is long</h3>
       <p>Under the turn it is working on, a run keeps <strong>one live line</strong>: which step it is on, which tool on which file, and for how long &mdash; &ldquo;Step 7 &middot; write_file src/InputManager.ts &middot; 12 s&rdquo;. Parked on a question it says <em>waiting for you</em> instead, and gone quiet for longer than it should it names what is hanging rather than counting up under a word that is no longer true. When the run stops, the same line becomes its receipt: how many steps, how many files, how long, and what the turn cost. That receipt is read from the session itself, so reopening the window later shows exactly the same one. A run long enough to earn the full written report below keeps only the price on the line, so nothing is said twice.</p>
       <p>A run that works for a while says so instead of hiding behind a spinner. The status line counts how long it has been going, and if the run stops producing anything for two minutes the line names the silence &mdash; &ldquo;no progress for N min&rdquo; &mdash; rather than letting &ldquo;working&rdquo; stand over a run that stalled. If Skales itself was closed while a session was mid-turn, reopening that session says <strong>interrupted</strong> above the box you type into: the last answer may be incomplete, and sending a message carries on. And a run of ten steps or more ends with a <strong>run report</strong> in the transcript &mdash; how many steps, how long, what the working tree looks like now, and which checklist items are still open &mdash; composed from the session itself, with no extra model call.</p>
+      <p><strong>Stop acts at once.</strong> The press never waits behind anything else the window is doing: the line says <em>Stopping</em> immediately, and the session shows as stopped only when nothing of it is running any more &mdash; a step that is still finishing is named instead of being drawn as stopped. What the run does reaches the window the moment it happens, the answer as it is written, each tool call and its result, the queue and the permission card, and only what changed travels, so a session with hundreds of messages streams as smoothly as a new one and a reload picks the answer up exactly where it stands.</p>
 
       <p>A session that worked <strong>ten steps or more closes with a run report</strong> in the transcript: how many steps it took, how long it ran, what the working tree looks like now and on which branch, and which checklist items are still open. It is composed from the session itself with no extra model call, and it lands the same way whether the run was driven from this window or from a chat in a code mode.</p>
 
@@ -2162,6 +2193,16 @@
 
       <h3>Typing: @, drag, and /</h3>
       <p>Typing <code>@</code> offers the files of the repository, matched on the whole path so a folder name finds them. Drop files onto the box, paste a screenshot, or use the paperclip: video, audio, PDFs and archives attach the way they do in a chat. A slash at the <em>start</em> of a line opens the commands a coding session has: switch mode, open review, commit, open a pull request, stop, start a new session, clear, open the terminal. A slash anywhere else is just a path.</p>
+      <p>Six of them are the ones every coding tool has. <code>/undo</code> takes back the last turn that changed files, puts the files back and your question into the box, and pressed again takes back the turn before; changes a shell command made are not part of it. <code>/resume</code> carries on a session that stopped half way, or opens your sessions when nothing stopped. <code>/cost</code> shows what the session has cost and what fills its context. <code>/diff</code> opens the review of what changed. <code>/init</code> has the session read the project and write its <code>AGENTS.md</code>, or update the <code>CLAUDE.md</code> it already reads, folding in rules other coding tools left there. <code>/model</code> opens the model picker, and <code>/model</code> with a name switches straight to that model.</p>
+
+      <h3>Keys</h3>
+      <p><strong>Esc</strong> stops a running turn, through the same stop as the button; pressing it again while the stop is on its way does not stop anything else. With nothing running, <strong>Esc Esc</strong> opens your last message for editing. <strong>Shift+Tab</strong> in the box you type into moves to the next mode: Ask, Plan, Code, Auto, and round again. An open menu, dialog or editor, and your terminal, keep their own Esc. All of them are listed under Keyboard shortcuts in the command palette.</p>
+
+      <h3>The status bar</h3>
+      <p>Along the foot of the window: which model answers and at what thinking effort, how full the context is, and what the session has cost so far &mdash; the same figure the chat shows for a conversation. Click the context figure to see what fills it.</p>
+
+      <h3>What the session touched</h3>
+      <p>The file column leads with <strong>Changes</strong> whenever there are any. It lists what git reports and everything the session itself created (A), changed (M) or deleted (D), also in folders your repository ignores and in folders that are no repository at all. A folder holding a change carries a dot. Dependency and build folders are left out.</p>
 
       <h3><code>/clear</code>, and where the work lives</h3>
       <p><code>/clear</code> starts the conversation over without losing the folder, the branch or your place. Each session also has a scratchpad of its own for the files it needs while it works, kept apart from your workspace and removed with the session.</p>
@@ -2171,9 +2212,27 @@
 
       <h3>It hears you while it is working</h3>
       <p>Type while a session is running and your message joins the run instead of starting a second one on the same transcript, and Skales says so.</p>
+      <p>What you send while it works waits in a <strong>dock above the box you type into</strong>, greyed, the moment you press Enter. Each line says when it joins: <em>at the next step</em> (the default &mdash; it is folded into the working turn before the model is asked again) or <em>after this turn</em> (it runs as a turn of its own once the current one has finished). While it waits you can <strong>edit</strong> it, <strong>remove</strong> it, move it to after the turn, or <strong>send it now</strong>. When the run reads it, the row says <em>delivered</em> for a moment and the message appears in the log with a small stamp naming the step it arrived at. Your paired phone sees the same list and can change it the same way.</p>
+      <p><strong>Stop never throws a waiting message away.</strong> A line the run had not read yet stays in the log marked <em>not delivered</em>, with <strong>Send now</strong> and <strong>Discard</strong> in the dock; a message held for after the turn stays in the dock, paused. Nothing goes out until you choose it.</p>
+
+      <h3>&ldquo;No, and instead&rdquo;</h3>
+      <p>Under the refusal on a permission card there is a field: <strong>No, and instead: &hellip;</strong>. Write what it should do instead and the step is declined with your sentence as its result &mdash; the model reads it and carries on in that direction, without you stopping the run and typing it again. A plain <strong>No</strong> still ends the run. The same works from the chat and from your phone.</p>
+      <p>When a command is refused by a safety rule rather than by you, the refusal names the rule (&ldquo;mass deletion&rdquo;, &ldquo;shutdown or restart of this computer&rdquo;, &hellip;) and the setting that lifts it: <strong>Settings &rarr; Security &amp; Privacy &rarr; Safety Mode</strong>, Advanced or Unrestricted, and only Unrestricted for the rules that can destroy the system. A word like <em>shutdown</em>, <em>reboot</em>, <em>halt</em> or <em>wipe</em> counts only where it is the command itself &mdash; not inside a <code>grep</code>, an <code>echo</code> or a commit message.</p>
+
+      <h3>When it goes round in circles</h3>
+      <p>When the same tool is called three times with exactly the same input, the run stops and asks: <strong>Keep going</strong>, <strong>Try it differently</strong> (you can say how) or <strong>Stop</strong>. Stop ends the run where it is; everything done so far stays.</p>
+
+      <h3>Shortening, with the numbers</h3>
+      <p>When a long session is summarised to fit the model &mdash; on its own, or because you pressed <code>/compact</code> &mdash; the log shows it as its own item with the context before and after, in tokens. <code>/compact</code> while a run is working is no longer refused: it is taken at the next step.</p>
+
+      <h3>Long answers arrive whole</h3>
+      <p>A long answer streams from its first word, however long it gets. When the model stops at its output limit in the middle of an answer, Skales asks it for the rest, as often as it takes, and the parts land as one answer carrying the price of all of them. If an answer still ends at the limit, a line under it says so.</p>
 
       <h3>Code inside a chat</h3>
       <p>A chat can still be bound to a folder and run in a code mode, and it is the same engine. A chat like that has one button in its header that stops what is running, cleanly, and hands the same session to the Code window &mdash; not a link and not a copy.</p>
+
+      <h3>Games with Godot</h3>
+      <p>Point a Code session at a game project and Skales finds Godot on your computer, imports the project and checks it, plays it for a few seconds, runs its tests, and records a short clip as proof of what it saw. An engine that hangs is stopped and named instead of waiting forever, and a game with a script error is never reported as working. Without Godot installed, Skales says where to get it rather than guessing at a result. A game-development skill reads the project first and routes Godot, Unity, Unreal, Bevy, Phaser, PixiJS, three.js, LOVE and pygame work to the guidance that fits the engine actually in the folder.</p>
     </section>
 
     <section id="chat-code-settings">
@@ -2209,6 +2268,10 @@
 
       <h3>Decisions</h3>
       <p>Some of what Skales does between your messages is not writing at all, it is deciding: which of a handful of steps fits, whether a step still matters, whether the next click is one you would want to be asked about. Those closed questions can go to a decision model, which answers yes-or-no and which-one questions in a fraction of a second and never writes a word. <strong>Decisions</strong> sits under the assist model on the same card. It is <strong>Off</strong> by default, and off keeps everything exactly as it is today. Choose <strong>TypeSafe key</strong> and paste a key of your own, or <strong>via OpenRouter</strong> to use the OpenRouter key you already have for chat; the model list carries the decision models that exist. A decision model never sees a picture, so anything that needs a screenshot still goes to the model you chose. What leaves the machine when it is on: the names of the elements on a page, your instruction and the tool steps of the conversation, nothing else. An incognito conversation and Privacy Mode never ask it.</p>
+      <p>The same slot can hold <strong>OpenRouter Auto Router</strong> instead. It answers no questions of its own; it only chooses models. A line under the picker says what one choice costs and how long it takes: about $0.00001 and 70 to 500 ms for a decision model, nothing extra for the Auto Router, where your turn costs what the chosen model costs.</p>
+      <p>Below it sits <strong>Route each turn</strong>, off by default. With a decision model in the slot, it reads each task once and picks which of the models <em>you</em> configured answers it: your chat model, your planning and executing models, and your fallback chain if fallback is on. It looks at what each can do &mdash; pictures, tools &mdash; and at its price. If the picked model fails, your chat model takes over; if a model fails with a fallback chain on, it picks which fallback steps in. With the Auto Router in the slot, every OpenRouter turn goes to OpenRouter's router, limited to the OpenRouter models you configured. Every switch shows as one quiet line in the chat, and its price is part of the turn's cost. Off, every turn goes to your chat model exactly as before.</p>
+      <p>With Jev, the choice is made <strong>while you type</strong>: once your message is about 40 characters long and you pause, Jev reads the draft and the composer shows its pick, for example <em>&rarr; deepseek-v4 &middot; Code</em>. Click it to pick another of your models or your chat model; your choice wins. When you send, the pick is used straight away if the text is still essentially the same, so the turn does not wait for it. Jev reads the draft only when routing is on, never in an incognito chat, and those small questions count towards the turn's cost.</p>
+      <p>Flow benefits too. With a decision model in the slot, Flow's <strong>Auto</strong> asks it which kind of thing your brief wants and which template fits, taking your attachments into account; the helper model still writes the scoping questions and still decides whenever the decision model cannot. With routing on, Flow turns go through the same router as the chat until you switch the session's model yourself.</p>
 
       <h3>Say something while the model is still thinking</h3>
       <p>A big model can sit silent for several seconds before it writes anything. With this on, one short line appears in the status slot saying what Skales is about to do. It is written by your assist model, it is never stored in the conversation, and it is never sent back to a model on a later turn - it lives only in the window you are looking at. On by default. Switching it off gives you the ordinary indicator and nothing else changes.</p>
@@ -2445,6 +2508,8 @@
       </ol>
       <p>If none of the three is set up, the chip stays where it is and tells you which key is missing and where it goes. It keeps the camera move you picked either way. Follow-up messages are takes: &ldquo;tighter&rdquo;, &ldquo;try it as a crane up&rdquo;, &ldquo;same shot at night&rdquo; keep everything you did not change and save the result beside the earlier takes.</p>
       <p>On the phone, Film works the same way with the same moves, and generates through the video key on the phone (fal.ai under Integrations, or an OpenRouter key under Provider). With no key it says so rather than producing an animation and calling it a film.</p>
+      <h3>A launch video, from Skales Code</h3>
+      <p>Type <code>/launch</code> in a Code session &mdash; add a tone such as polished or cinematic, or a format such as vertical for reels &mdash; and Flow builds a short launch video from the project itself: its name, its words, its colours, fonts, screens and logo. Environment files, keys and secret folders are never read. The video renders and a post text is written beside it. The same works from any chat, in words, without opening Code first, and Flow has a Launch video template for starting the same way from the Templates tab.</p>
       <h3>When it asks you something first</h3>
       <p>A brief that leaves essential decisions open can come back with a handful of <strong>scoping questions</strong> — a short clickable form in the preview rather than a paragraph asking you to reply in prose. It only does this when you chose to be asked: leave the composer on its normal setting and Flow gets on with it and shows you a result you can then correct.</p>
 
@@ -2476,6 +2541,13 @@
       <p>Ask for &ldquo;three variants&rdquo; and three versions of the page appear next to each other on the canvas. <em>Take this</em> on the one you like makes it the page; the others are kept as versions, so none of them is lost.</p>
       <h3>Brand Kit and style packs</h3>
       <p>Your Brand Kit &mdash; logo, colours, fonts, tone &mdash; applies to a Flow project, and a style pack can be pinned next to it. Your brief always wins on content.</p>
+      <p><strong>No house style.</strong> Without a Brand Kit or a style pack, Flow has no default look. Each project is offered a few design directions picked from its brief and away from what your last projects used, and the scratchpad names the one it took &mdash; so three similar briefs do not come back looking the same.</p>
+      <h3>What Flow knows about you</h3>
+      <p>Nothing, unless you say so. Every new project starts with <strong>My memory</strong> switched off: Flow works from the brief and the project files, not from your memory, your standing instructions or your notes. Switch the chip on in the composer (or later in the workspace head) and Flow gets your name, your brand or company and the style facts you saved &mdash; never your working rules, your projects or your notes. The choice belongs to the project and survives a reload.</p>
+      <p>Your name or brand only goes into a design when the brief asks for it: &ldquo;my showreel&rdquo; or &ldquo;our company&rdquo; does, &ldquo;a showreel&rdquo; does not &mdash; that one stays fictional, without your name and without Skales in it.</p>
+      <h3>Teaching Flow your taste</h3>
+      <p>Under every finished result sit a <strong>thumbs up</strong> and a <strong>thumbs down</strong>. Up keeps what worked &mdash; the direction, the structure, the pacing, the type &mdash; as a short lesson; down keeps what to avoid, and asks for one optional line on why. The lessons live in one skill, <em>flow-style-lessons</em>, on the Skills page, marked <em>Flow only</em>, with an Undo for the last change. Only Flow reads it, never the chat, and a Flow conversation you do not rate teaches nothing and writes nothing into your memory.</p>
+      <p>If an answer still ends at the model&rsquo;s output limit after Skales asked it for the rest, a note under it says so; send &ldquo;continue&rdquo; for the remainder.</p>
       <h3>Handing it to Code</h3>
       <p>A design in Studio or Flow can be handed to the coding session that will build it, so the thing you approved is what gets built.</p>
     </section>
@@ -3006,6 +3078,10 @@
       <div class="warn"><strong>⚠️ On a Mac you must allow it once</strong> &mdash; reading and clicking controls by name needs the <strong>Accessibility</strong> permission, which macOS grants in its own System Settings under Privacy &amp; Security, not inside Skales. Without it, screenshots still work, everything else says exactly which permission is missing instead of quietly doing nothing.</div>
 
       <div class="warn"><strong>⚠️ Safety Mode</strong> &mdash; In Safe Mode, every Computer Use action requires your approval before execution. A click on a control whose name says it deletes, buys, cancels or pays asks first by that name, whatever mode you are in.</div>
+
+      <h3>You see it working</h3>
+      <p>While Skales clicks, types or navigates for you &mdash; on the desktop or in the browser, whichever part of Skales started the job &mdash; a glow in your accent colour runs around every screen. A comet with a tail flies to the point it is about to click, and the click lands as a short pulse. At the top of the screen a small bar says what it is doing right now and has a <strong>Stop</strong> that ends the run exactly like Stop in the chat. The glow lets every click through, so your apps, Buddy and AIPointer stay usable while it shows.</p>
+      <p>When the next field is a <strong>password</strong> or <strong>payment details</strong> in a window you can see, Skales stops and hands the screen to you: the bar says it is your turn, you type it yourself and press <strong>Continue</strong>. Skales never types into such a field. The glow goes away when the job ends, when it crashes, or when it stops taking steps.</p>
     </section>
 
     <section id="download-file">
@@ -4504,7 +4580,7 @@
     </section>
 
     <footer>
-      <span>Skales v<span data-skales-version>12.9.41</span> &middot; © 2024-2026 Mario Simic &middot; Proprietary licence</span>
+      <span>Skales v<span data-skales-version>12.9.45</span> &middot; © 2024-2026 Mario Simic &middot; Proprietary licence</span>
       <a href="https://skales.app">skales.app</a>
     </footer>
 

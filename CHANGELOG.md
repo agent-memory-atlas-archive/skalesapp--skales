@@ -6,303 +6,338 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## v12.9.41 - Lantern
+## v12.9.45 - Steer
 
-**A release that gives every surface the same hands, and makes a course that Moodle counts as done.**
+**A release you can steer: the chat drives Skales Code, a line typed mid-turn joins the work, Stop acts at once, and you can see Skales working on your screen.**
 
-The chat and Skales Code now have what a coding agent needs every day: they pack and unpack archives, write binary files, work on your own servers over SSH, SFTP and rsync, put every file they make where you say, write Word files and editable presentations, and voice a text or a whole course with the voice you choose, captions included. Flow becomes a canvas: every page is a frame that builds itself while the agent writes, you queue the next request while it works, click an element to change it in the file, pin comments on several and send them as one request, and compare variants side by side.
+Skales Code became something a developer can lean on. Stop acts at once and the window stays fast in long sessions, answers arrive whole, a message typed during a run waits visibly and can be edited, sent now or discarded, and a command can be refused with a reason the model follows. Esc, Shift+Tab and the slash commands you know from other coding agents are there, the status bar shows model, context and cost, and the chat itself can start, feed and read a Code session on any folder, from the computer and from the phone.
 
-Courses are the other half. One course runtime serves SCORM 1.2 and 2004, cmi5, xAPI, AICC and Common Cartridge; Flow builds e-learning courses in their own mode; any folder can be packaged, checked and tested; and a finished course goes into Moodle from wherever you are, replacing the package in the same activity so your learners keep their progress. Plugins grow into whole applications with their own model calls, long jobs, previews, files in and out and hand-offs, which is what the free E-Learning plugin is built on.
+Skales also learns the way you work: episodes and facts every hour, a quiet review that writes down what worked as procedures, and /learn, /refine and /btw to steer it. When it controls the screen you see it, with a frame in your accent colour and the comet on every click. Flow no longer carries your memory into fictional work unless you ask it to, picks its own design direction, and learns from your thumbs. Settings open on General and read more calmly, Iris is the one voice door, and large attachments arrive whole on every surface.
 
-Settings is rebuilt from the ground up. It opens as one window over whatever you are doing, with ten categories on the left and the same names as on the phone. Every switch and choice takes effect the moment you change it, nothing waits for a Save button, and nothing you or another part of Skales changed elsewhere is undone when you close it.
-
-12.9.41 is the same release with a repaired Windows build: the Windows app starts again, and every part the app loads on demand is in the Windows package. macOS and Linux behave exactly as in 12.9.40.
+Skales now brings craft with it: reviewed skill packs for motion, short-form video, frontend design, Office documents, print and brand work and persistent research load by themselves where they help, letters come out on your letter paper, a project becomes a launch video with /launch, and Godot games are built, run and recorded from Code. Every plugin page offers three modes, from doing it yourself to letting the AI do it with each release step waiting for your click, even across a restart. Long runs show every step with its cost, and a run that cannot work says so before it spends anything.
 
 ### Added
 
-- **Iris connects to current live-audio models.** OpenAI Realtime and Gemini Live now default to available models, retired preview picks return to a working default, and Gemini's short-lived token uses its documented WebSocket endpoint. Extended Thinking gets the required non-blocking tool declarations.
+- **Create editable business letters with your logo, running headers and footers, address window, references, fold and hole marks and page numbers.** The logo and the marks show in Word and LibreOffice alike, the logo keeps its proportions, and a document that asks only for a header or page numbers keeps its page as it was.
+- **A launch video of your project, straight from Skales Code.** Type /launch, optionally with a tone like polished or cinematic or a format like vertical for reels, and Flow makes a short launch video from the project's own name, words, colours, fonts, screens and logo, renders it once it is ready and writes a post text beside it. Environment files, keys and secret folders are never read. The same works in words from any chat, and Flow has a new Launch video template.
+- **Direct motion films with a clearer beat plan and visual review.** Flow motion now brings guidance for using real references, seekable movement, restrained sound and a check of the key frames before the full film is rendered.
 
-- **Code can ask its language server where a symbol lives.** The read-only query returns definitions, references, hover details, implementations, call hierarchies, document symbols and project-wide symbol searches with editor line numbers, using the existing server and install approval path.
+- **Godot games get built, run and shown.** Skales finds Godot on your computer, imports and checks the project, plays it for a few seconds, runs its tests, records a short clip as proof and exports builds. An engine that hangs is stopped and named instead of waiting forever, and a game with a script error is not reported as working. Without Godot installed, Skales says where to get it. A new game-development skill routes Godot, Unity, Unreal, Bevy, Phaser, PixiJS, three.js, LOVE and pygame work to the right guidance.
 
-- **DevKit reaches the current app capabilities.** Its CLI and authenticated API can run every available Chat tool through the shared safety gate, persist one-time approvals through restart, use Code roles and loops, run installed plugin agents, and inspect the decision model. The in-app reference reads tool and provider counts from the app itself; the docs cover phone approvals, MCP certificates and the current Chat stream.
+- **Thumbs up and down on every Flow result.** Up keeps what worked - the direction, the structure, the pacing, the type - as a short lesson, down keeps what to avoid, with one optional line on why. The lessons sit in one skill on the Skills page, marked Flow only, with Undo for the last change, and only Flow reads them. A Flow conversation you do not rate teaches nothing.
 
-- **Code subagents keep model-specific tool guidance.** A child's isolated prompt now carries only the tool notes for tools it can call, and a long, repeated subagent run is checked for a fresh return path.
+- **"My memory" in Flow, per project.** A chip in the Flow composer and in the workspace head decides whether a project may use what Skales knows about you. Switched on, Flow gets your name, your brand and the style facts you saved, and nothing else. Every new project starts with it off, and the choice survives a reload.
 
-- **One patch can change several project files together.** Chat and Code check every path and hunk before applying a unified diff, keep backups and Code diffs, offer one Undo for the patch, and report compile diagnostics for changed files.
+- **A message you send while Skales works reaches it at the next step.** Type while a turn is running and your message joins that turn after the tool call in flight returns, instead of waiting for the whole answer; several messages in a row arrive as one, pictures ride along. Prefer it to wait? Choose "After the turn" in the strip above the composer or in Settings, and it runs as its own turn once the current one is done. The strip shows each line as waiting and then delivered, lets you edit or remove it, and keeps it through a reload or a restart. The chat, Iris, the Buddy and the phone all use the same queue.
 
-- **The bundled DevKit has one source in this app.** Its published facts come from the running app's version, tool count and provider manifest. A missing DevKit source or stale generated facts now fails the build check.
+- **Skales learns while you work.** Every ten messages or ten tool steps, a short look back on the helper model keeps facts about you, how-to lessons and corrections of how you want things done, and one quiet "Memory updated" line in the chat links to what it kept. Never in Incognito, and its cost is part of the conversation's price. Switch it off in Settings, Memory, Learning.
 
-- **An installed DevKit can be refreshed in place.** The Developer card offers the newer bundled copy, preserves the API token and extra files, and saves the prior folder as a backup. A second visit shows the current state.
+- **Procedures Skales writes for itself.** When a repeatable way of doing a task comes up, Skales writes it down as a skill with steps, pitfalls and a check, and improves it next time instead of starting over. It only changes a skill after reading it, never touches a skill you brought unless you ask, and the Custom Skills page shows these as "written by Skales" with their version, how often they were read and an Undo for the last change.
 
-- **GPT 6 tool turns use the OpenAI Responses API.** Direct OpenAI key calls for Astra, Sol and Luna keep their tools and native effort setting. The code builder can also send model-native effort to Google, OpenAI and Anthropic.
+- **/learn, /refine and /btw.** /learn followed by a folder, a link, a PDF or nothing ("what we just did") turns it into a procedure. /refine runs the look back now. /btw asks a side question and answers it without interrupting a turn that is running. All three work in the chat, the Code window, Telegram and from the phone.
 
-- **Coding agents can pack archives.** Code and ops subagents can create and list ZIP files. In true Unrestricted mode with full file access, edits and cleanup no longer wait for a prior file read; file backups and path protection still apply, and account identifiers still require provenance.
+- **Conversations are summarised during the day.** Finished conversations get their summary and facts hourly, at most 24 a day, for every installation, whether or not Dreaming is on, so "what did we do this morning" has an answer at lunch.
 
-- **E-Learning previews use a real window and the chosen width.** The storyboard sends Desktop, Tablet or Mobile to the preview host, opens a separate window when asked, and closes it with the course preview. The editor gives the course more room and uses the plugin page kit's solid surfaces and segmented controls. Google narration offers its working voice for a sample.
+- **Plugins speak your language.** A plugin page follows the language Skales is set to - not the language of your computer - and switches along while it is open. A plugin can carry its own translations, and its name and description in the menus follow them. E-Learning now speaks all twelve languages, starts a new course in your language (a course you already have keeps its own) and brings an English example course next to the German one.
 
-- **Model pickers show every available model.** Chat, Code and Flow search the complete catalogue and keep the active provider and free models browsable without a hidden row limit.
+- **Design templates for E-Learning, and a look you can change in words.** Six complete looks - Warm, Corporate light, Corporate dark, Playful, Editorial and Technical - set colours, fonts, spacing, corners, shadows and a dark scheme in one click, with text that stays readable. Or say what you want ("more playful", "dark", "corporate in our brand kit"): the new look is proposed first and applied with a click, undo takes it back and every earlier look stays in a list to restore. Your Brand Kit and the design style packs from Flow are used when you ask for them, and the chat and the plugin's assistant can make the same change. Courses keep passing the LMS check with every look.
 
-- **Google and Anthropic discovery follows every result page.** A model on a later API page is included in the same alphabetic picker as the first page.
+- **A plugin you switch on appears in the sidebar.** It is pinned once when you switch it on; if you unpin it, it stays unpinned, and switching it off takes it out again.
 
-- **Stop from the phone reaches a private chat run.** The phone's private session id is resolved to the in-memory runner, and the idle confirmation returns under the phone's id.
+- **Skill packs that bring craft to Flow and the chat.** Motion design, cutting your own footage into short-form video, frontend design, print and brand work, Office documents (designed PowerPoints and letters on your letter paper) and persistent research arrive as skills that load by themselves in the Flow mode or the conversation where they help. Skills built from open-source projects are rewritten in Skales' own words, name their sources on the skill card and in the notices, and ship only after a person has reviewed the rewrite.
 
-- **Effort now reaches OpenAI API and Gemini models.** The composer adds Max, sends the model's native effort or thinking setting, and shows the actual rung when a model supports less. Desktop and phone share the same mapping.
+- **Collages in Flow.** A new Collage template in image mode composes your pictures, plus generated or found ones where the brief asks for more, into one image in the format you chose, and saves it as a picture when the turn ends. Save as image stays available to save it again after a change.
+- **Business plugins get new versions without a new Skales release.** A plugin Skales makes for your business, like E-Learning, shows its next version on the Plugins page when your Skales account includes it. You read what changes before you confirm, your courses and files stay as they are, and without the licence the plugin keeps working and the page tells you why there is no update.
 
-- **Hugging Face model browsing can load every page.** Search results and your own models gain a Show more button, keep their alphabetical order as pages arrive, and discard stale searches when you change filters.
+- **Flow edits your footage.** Attach a phone video, a recording or a long take to a Flow project, in any mode, Auto and Free included, and tell it what film you want: a short with a hook in the first two seconds, a long-form cut with the silences tightened, a UGC clip, a highlight reel. Flow sights the recording (shots, pauses, what is said with timings), looks at the moments that matter, writes the cut, crops it to 9:16 or keeps it 16:9, lays music under it that ducks when someone speaks, adds narration, burns in captions that follow the cut, inserts other clips where they belong, and draws motion graphics over the picture: titles, lower thirds and callouts rendered frame by frame with a transparent background and laid over the footage. The finished MP4 lands in the project. A recording of any ordinary length now arrives: attachments used to stop at 15 MB and anything larger was left behind without a word.
 
-- **Long model lists can be searched in their dropdown.** The shared picker keeps keyboard navigation and marks the chosen model while it filters the full list.
+- **Say which service, and Flow and the chat use it.** "Make it with Kling", "use OpenRouter", "Sora 2 Pro", "in 9:16 and 4K" in a message now decides the service and format for that turn, over the composer's preselection; when nothing is said, the composer applies, then the models you chose per task under Providers > OpenRouter. Every video service Studio knows is reachable from the chat and from Flow: OpenRouter (Veo 3.1, Kling 3, Seedance 2.5, Sora 2, Runway Gen-4.5, Wan, Hailuo, Grok), Google Veo, Kling, Runway, Seedance, MiniMax, fal.ai LTX, Atlas Cloud and Skales IQ. A service you name without a key of its own runs through OpenRouter when OpenRouter carries it, and the reply says so. A length, ratio or resolution a model cannot make is fitted to the nearest one it can, and the reply names the change instead of calling the clip what you asked for. The finished clip goes straight into the Flow project.
 
-- **OpenAI images and Realtime name the credential they need.** Studio offers current GPT Image 2.5 models and defaults to Flare. ChatGPT sign-in still works for chat; image generation and Iris live audio in Skales explain that their API endpoints require an OpenAI API key.
+- **Hundreds of specialists on call.** Ask for a specialist in any chat, a Unity architect, a PPC strategist, a penetration tester, and Skales finds one in its bundled agent library, reads its working method for your task, or hands the task to a sub-agent that works as that specialist and brings the answer back. Handing over asks first and shows its card like any sub-agent. The library is searched when needed, it is never pasted into every message.
 
-- **Private videos remain readable by the chat's video tool.** A video attached in Incognito can be revisited on later turns: frame descriptions and soundtrack transcription use its in-memory reference without writing a decoder copy to disk.
+- **Music and sound effects on request.** The agent makes a music bed or a sound effect with the service you choose: OpenRouter (Lyria 3, and the music model you picked for OpenRouter is the default), ElevenLabs music and sound effects, Hugging Face (MusicGen, Stable Audio) or Skales IQ.
 
-- **Private chats stay private across the phone and computer.** A private turn sent from Mobile uses an in-memory desktop conversation, including when the connection drops and comes back, so it never joins a saved chat or its notifications.
+- **What you send while Skales Code works waits where you can see it.** A message sent during a run appears at once above the box you type into, greyed as waiting, and says whether it joins at the next step or after the turn. You can edit it, take it back, hold it for after the turn or send it now; when the run reads it, it is marked delivered and the log shows at which step it arrived. Your phone sees and changes the same list.
 
-- **The chat and Skales Code can pack and inspect zip archives.** Skales zips a folder, a file or a list of files with patterns for what to include and leave out, and puts a folder's contents at the top of the archive, the way an LMS or a theme upload expects. It can also list what is inside an archive without unpacking it. Passwords and key files are never packed.
+- **"No, and instead" on a permission card.** Under the refusal, write what Skales should do instead: the step is declined with your sentence as its answer and the run carries on in that direction. A plain No still ends the run. It works the same from the chat and from the phone.
 
-- **Binary files can be read and written.** Pictures, audio, fonts and archives can be copied, patched and assembled byte for byte, not only text files.
+- **A run that repeats itself stops and asks.** When the same tool is called three times with exactly the same input, the run pauses and asks whether to keep going, try it differently (and how), or stop.
 
-- **Skales works on your own servers over SSH.** Add a server once (password, key file, pasted key or ssh-agent, with its host key remembered), then the chat and Skales Code can run commands there and follow long ones as they run. They can also upload and download files and folders and keep a folder in sync with the server, sending only what changed. SFTP publishing profiles and SSH servers are one list.
+- **Shortening shows its numbers.** Every time a long session is summarised to fit the model, the log shows it as its own item with the context before and after in tokens, and /compact while a run is working is taken at the next step instead of being refused.
 
-- **Every tool that makes a file can put it where you say.** Images, voice recordings, PDFs, spreadsheets, videos and the new documents go into your project folder or any folder you name, instead of only their usual place.
+- **Settings works on a phone and in a narrow window.** When Skales is opened in a phone browser or a small window, the search and the categories move to the top, the categories scroll sideways, and a setting's control moves under its name instead of squeezing it to a letter.
 
-- **Word files and editable presentations from the chat.** Skales writes a .docx from Markdown and builds a PowerPoint deck with real text boxes, pictures, shapes and speaker notes, and tells you about anything it could not place.
+- **You see Skales working on your computer.** While it clicks, types or navigates for you, in the browser or on the desktop, a glow in your accent colour runs around every screen, a comet flies to the point it is about to click and a click lands as a pulse. A small bar at the top says what it is doing right now and has a Stop that ends the run like Stop in the chat. Your apps, Buddy and AIPointer stay clickable underneath, and the glow goes away when the run ends, crashes or stops moving.
 
-- **Any HTML page can be exported to PDF, PowerPoint or Word.** The export that Flow's buttons run now works for any folder. It renders the page the way the preview shows it, with its pictures, fonts and styles.
+- **Passwords and payment details stay yours.** When the next field is a password or a card in a window you can see, Skales stops and hands you the screen; you type it yourself and press Continue. It never types into such a field.
 
-- **Narration with the voice you choose.** The chat, Skales Code and the plugins can voice a text or a whole course with any voice you have set up: OpenRouter's speech models and its audio models, ElevenLabs, Azure, OpenAI, the offline voice on this computer, and the others. Long texts are voiced in short parts and joined without clicks. You get mp3 or wav, subtitles whose times come from the audio, and a spoken version that can differ from the written caption. After a change, only the changed slides are voiced again. You can play samples of several voices before choosing, and the cost is shown.
+- **Route each turn, off by default.** Under Assistant > Writing help > Decisions, Jev can now pick which of your configured models answers each turn (your chat model, planning and executing models, and fallback chain) by what each can do and what it costs, and pick which fallback takes over when a model fails. The same slot also takes OpenRouter's Auto Router, limited to your own OpenRouter models. Every switch shows as one quiet line in the chat, and its price counts in the turn's cost. The card says what one pick costs and how long it takes before you switch it on.
 
-- **SSH servers in Settings.** Add a server with a key file, a pasted key, a password or your ssh-agent, test the sign-in, see the remembered host key and forget it after a reinstall, and mark a server as trusted.
+- **The pick is ready before you send.** With routing on, Jev reads your draft once you pause (from about 40 characters) and the composer shows its choice, for example "→ deepseek-v4 · Code", in the chat, Skales Code, Flow and Buddy. Change it with a click and your choice wins; when you send, the pick is used at once if the text is still essentially the same. Never in an incognito chat, and the small questions count in the turn's cost.
 
-- **Your phone can use your servers through the paired computer.** The phone asks, and the computer runs the command or the transfer with its own server settings. Passwords and keys never travel to the phone.
+- **Flow's Auto picks with Jev.** With Jev in the Decisions slot, Flow's Auto asks it which kind of thing to make and which template fits, from your brief and your attachments, in a fraction of a second; the helper model still writes the scoping questions and still decides whenever Jev cannot. With routing on, Flow turns go through the same model router as the chat until you switch the session's model yourself.
 
-- **Auto runs the new tools without asking when they stay in your project folder.** Packing, unpacking, documents, spreadsheets and exports inside the bound folder go through in Auto. So do a cut plan for the video editor and a project on the Projects page. On a server you marked as trusted, commands and downloads run without a card too. The first upload to a server in a session still asks.
+- **Skales Code answers the keys a developer reaches for.** Esc stops a running turn through the same stop as the button, pressing Esc twice opens your last message for editing, and Shift+Tab in the composer steps through Ask, Plan, Code and Auto. All three are listed with the other keyboard shortcuts. An open menu, dialog or editor, and the terminal, keep their own Esc.
 
-- **Flow has a canvas.** Every page, variant and picture of a project is a frame on one plane, and with Versions switched on so is every earlier version. Pinch or Ctrl/Cmd and the wheel zoom, two fingers or the wheel move around, dragging an empty spot pans, and the keyboard does the same. Frames are arranged by dragging them and open in Focus, with the device widths, the presenter and the exports, on a double click. The arrangement, the zoom, the selection and the view come back after a reload or a restart.
+- **Six slash commands every coding tool has.** In Skales Code, /undo takes back the last turn that changed files and puts your question back in the composer, and pressed again it takes back the turn before. /resume carries on a session that stopped half way, or opens your sessions when nothing stopped. /cost shows what the session has cost and what fills its context, /diff opens the review of what changed, /init writes or updates the project instructions from the project itself and folds in the rules other coding tools left there, and /model opens the model picker or switches straight to the model you name.
 
-- **Frames build themselves while the agent writes.** A frame whose file a turn is writing reloads on its own and shows that it is being written, and a page that ends in the middle is flagged once the turn is done. Only the frames you can see run as live pages, the rest show a still, so a project with twenty frames and more stays smooth.
+- **The Skales Code status bar shows the model, its thinking effort, how full the context is and what the session has cost.** The cost is the same figure the chat shows for a conversation.
 
-- **You can send the next request while Flow works.** The message box stays open during a turn; what you type goes into a queue above it and runs as a turn of its own afterwards, one after another. Waiting requests can be changed, moved and removed. The queue survives a reload and a restart, and after a stop or a failed turn it pauses and says why, with a button to go on.
+- **Skales Code streams as it works, however long the session.** The answer, each tool call and its result, the queue, the permission card and the run's progress now reach the Code window the moment they happen, and only what changed travels: a session with hundreds of messages streams as smoothly as a new one, and an answer longer than twenty thousand characters arrives whole instead of losing its beginning while it streams. A run started from the phone, or the next message waiting in the queue, appears without a refresh. After a reload the window picks the answer up exactly where it stands.
 
-- **Click an element in Flow and change it in the file.** Inspect shows where an element sits, its text and its styles. Text, font, size, weight, spacing, colours, alignment, corners and pictures are written straight into the project file, with undo and redo that still work after a reload. An element the page's own script made says so and offers to mark it instead.
+- **The chat hands coding work to Skales Code.** Ask in any chat, on the computer or in the phone's Remote chat, for a job in a project folder: Skales asks once, opens a coding session on that folder with the task, and the Code window opens on it while your chat stays where it is. The same chat can send the session a follow-up (a working session keeps it in its queue and reads it at its next step; a session you let run on Auto takes it without asking again), tell you where it stands, and read back its last answer and the files it changed. When the session stops to ask for permission, you answer in the Code window, and the chat links you straight to it. A link to a coding session in an answer opens the Code window on that session.
 
-- **Mark elements and ask for changes in one go.** Mark places numbered pins, each with its own comment, and sends them to the agent as one request that names every marked element exactly and carries a picture of each. While a turn works the request waits in the queue.
+- **The phone reaches more of the computer.** A large file from the paired phone goes straight to the computer over the network when remote access is on and the phone can reach it; otherwise the relay carries it, at any size, paced to what the computer has written. A Code session opened on the phone shows its waiting messages, its model, effort, context use and cost, the learning and side-answer lines, and the router's pick, and the phone's composer can ask the computer's router while you type.
 
-- **Variants side by side.** Asking Flow for several variants puts them next to each other on the canvas. Taking one makes it the page, and every other variant is kept as a version.
+- **A line you sent from the phone that a stopped turn never read can be sent or discarded there.** The phone shows it as not delivered with Send now and Discard, and both run on the computer exactly as the chat window's buttons do: Send now starts the turn over the conversation as it stands, without writing the line twice. Reopening a conversation on the phone also brings the computer's whole spend for it, rolled-back turns and background costs included, marks a finished Skales Code run as a quiet line, and each answer carries what the turn's own helpers cost on top. The phone's composer can show which model the router would pick while you type, with your configured models to choose from, when routing is on.
 
-- **Long work keeps going when you close the window or restart Skales.** Voicing a whole course, packing a package or a long render now runs as a background job that shows its progress, can be cancelled, and picks up where it stopped after a restart instead of starting over. A job that cannot continue says that it stopped and why, instead of showing a bar that never moves.
+- **Give a plugin a job, and it does the whole job.** "Give a job" on a plugin starts from examples and lets you pick what it should work on. The plugin's assistant then presses the same buttons you have on the page, one step after the other, and every step shows up there and can be undone. Tell E-Learning what course you need and it creates the course, fills in the briefing, sets the look, writes the slides with their narration and voices them; when it is done, you look it over and release it with one click.
 
-- **Plugins can be whole applications, not only forms.** A plugin page can now be made of several files, ask its own model for an answer in the shape it needs, give its agent a job, run long work that keeps going when you reload, fill the whole window as an editor, and open a preview of what it made in a frame of its own - over the page, across the window or in a window of its own.
+- **Prepared, not sent: approvals that wait for you.** Whatever a plugin's assistant, a scheduled plugin run or a webhook would send, publish or finish now waits as a card - on the plugin, on the board in the cockpit and on your phone. The card is still there after a restart or days later, pressing it twice still does it once, and declining it ends the run and says so. Pressing it costs only what that one step costs.
 
-- **A course preview can stand in for the learning platform.** A plugin's preview can run an e-learning course as a learning platform would, with buttons to leave half way, come back to where you were and start over, and a log of every call the course made.
+- **Plugins can sign in to your services.** A plugin that works with a CRM, a shop or a mail service connects with your own sign-in in the browser. What the service hands back is kept encrypted on this computer and never reaches the plugin's page.
 
-- **Plugins hand files out and take them in, on your click.** Save as, Show in folder and Share hand a finished file to you; a file picker copies what you choose into the plugin's own folder. A page that asks without a click gets a card first.
+- **Webhooks for plugins.** A service you use can start a plugin's assistant with a signed call - a new order, a new sign-up. The plugin prepares what follows and waits for your click before anything goes out.
 
-- **A plugin's own tool can ask you for its key.** Skales draws the field, stores the key encrypted, and the plugin's page never sees it.
+- **Your plugin data, to take along or to delete.** Next to each plugin in Plugins you see what it has collected on this computer, save a copy of it as one file, or delete it while the plugin stays installed. Keys and sign-ins are never part of the copy.
 
-- **One plugin can hand something to another.** A plugin that says it accepts a kind of thing receives a copy in its inbox, after a card that names both plugins and the files.
+- **A plugin made for a newer Skales says so.** Instead of opening halfway and failing, it names the Skales version it needs.
 
-- **The import card names the tools a plugin brings.** Before you install a package you see which tools of its own it carries, what each one does, which keys they will ask for and what it accepts from other plugins.
+- **Three ways to work with every plugin that has a page.** Under the page you choose Manual, With AI or AI does it, and the plugin remembers your choice. Manual hides the plugin's AI buttons, With AI keeps them and adds a line to ask the plugin for anything else, and AI does it takes a whole job, with example jobs to start from: the AI does the work, you approve what it prepared, and every step stays correctable on its own. E-Learning is the first plugin with all three.
 
-- **Flow builds e-learning courses.** A new E-Learning mode in the composer, and an E-Learning block with a general course template in the Templates tab, turn a brief into a course with narration, subtitles, a transcript, exercises, a quiz and a contents list; Auto recognises a course brief and picks the mode itself. The frame around the slides is always the same one, with keyboard and screen-reader support, and a course left halfway opens again on the same slide.
+- **See every step of a run and what it cost.** In Flow, the price in the head opens the steps of the conversation: grouped by the message that started them, each with its tools, whether it worked, how long it took and what it cost, with waiting approvals and team members in the same list; the chat's full report shows the same steps. The steps add up to the price in the head and to the price the phone shows, and a reload in the middle of a run shows the same steps again.
 
-- **Courses go to the LMS you name, not to a standard you have to know.** The export asks where the course goes: Moodle and Totara get SCORM 1.2, corporate systems such as SAP SuccessFactors, Cornerstone, Docebo, Workday Learning, Absorb, TalentLMS, iSpring Learn, LearnUpon, ILIAS and Blackboard get SCORM 2004 4th Edition, Canvas gets an IMS Common Cartridge, and cmi5, xAPI and AICC are there for systems that ask for exactly that. You choose when a course counts as done: the last slide, every slide, a quiz score, or only when the course says so.
+- **A Flow start checks what it needs before anything is paid for.** When a planned step is missing its tool, its key or the local renderer - a clip without a video service, music without a music service, a cut without FFmpeg - Flow says which step needs what, links to the place in Settings where it is set up and names the way around it, such as OpenRouter, before a model is asked. Every video service you have set up counts, OpenRouter included. Nothing is charged for a start that cannot run.
 
-- **Chat and Code package, check and test courses from any folder.** Ask for a course package and Skales builds it from any folder, including one unpacked from an existing package and edited, checks it the way an LMS reads it, and runs it in an LMS stand-in with a learner who stops halfway and comes back, reporting every call the course makes. The Flow export uses the same machinery.
-
-- **A course is voiced from its export dialog.** Pick the speech provider and the voice and voice the whole course; only slides whose text changed are voiced again, and without a speech provider the dialog shows where to set one up.
-
-- **The export names the settings the LMS needs.** For Moodle: update the existing activity, require the status Completed, show it in the current window; for Canvas, cmi5, xAPI and AICC what those systems expect.
-
-- **A finished course goes straight into Moodle, from wherever you are.** Ask in the chat or in Skales Code, press Publish to Moodle in Flow's export, use the button in a plugin, or ask from your phone - the phone hands the job to your desktop, and the desktop publishes it with your own Moodle connection. Skales picks the best way your Moodle offers and tells you which one it took.
-
-- **A new version lands in the same Moodle activity, and your learners keep their progress.** Skales replaces the package inside the activity you already have instead of creating a new one. Before anything is uploaded it checks that the new package is still the same course; a package that would make Moodle treat it as a new course, and wipe everyone's progress, is refused unless you ask for a new version on purpose.
-
-- **A new Moodle activity comes out set up the way Moodle needs it.** Only when you ask for one: shown in the current window, and counted as done when the course reports it as completed.
-
-- **Moodle in Settings.** Settings, Accounts & Services, Moodle holds your Moodle address, your Moodle account and a web service token. Test connection shows what your Moodle can do, Get token with account fetches a token the way the Moodle app does, and the password and token stay encrypted on your computer. Several Moodle sites are possible, one of them the default.
-
-- **Three steps for your Moodle admin.** The Moodle settings carry a short guide for whoever runs your Moodle: install the Skales Connector for Moodle, switch on its web service, create a token. After that, publishing needs no browser at all. Without the admin it still works with your own Moodle account.
-
-- **Publishing through your own web space.** A Moodle activity that downloads its package from your server gets every new version by uploading the file there through one of your FTP or SFTP profiles. The Moodle settings say which one switch your admin sets once for this.
-
-- **How many learners finished, asked from the chat.** With a web service token, Skales reads back how many learners started and completed a course activity.
-
-- **Every publish into a course asks first, in every mode.** Auto and Unrestricted do not skip it, and an earlier yes does not carry over to the next publish. A plugin can only publish a package from its own folder, and the phone's publish goes through the desktop, so your Moodle password and token never leave this computer.
-
-- **Click an element in a plugin's course preview and change it.** A plugin that shows a course or page in its preview can switch on the same Inspect and Mark that Flow has: a click names the element, and the plugin writes the change into its own files.
-
-- **A brand kit from a website address.** The chat, Skales Code and plugins can read a site's colours, fonts and logo from its address and save the logo where you say.
-
-- **Whisper Small and Whisper Large v3 Turbo for dictation on this computer.** Skales Local now offers four Whisper sizes. The two new ones hear more accurately, above all in languages other than English, and are meant for recordings and push-to-talk. Every size says that it understands around a hundred languages, and an install keeps only the files the app actually uses.
-
-- **A plugin of up to 16 MB reaches your phone.** Taking a plugin from the computer to the phone used to stop at 2 MB; it now arrives in parts and is joined on the phone.
+- **Golden runs.** A run that came out right can be kept as a reference and replayed later on the current version, and the comparison says what changed in the work rather than in the wording: a tool that is missing or now fails, a file that no longer appears or has another type, a bill or a duration well above the reference, or an answer that ends on a promise.
 
 ### Fixed
 
-- **Skales starts again on Windows.** The Windows build of 12.9.40 closed at launch without a window or a message. It opens normally again.
+- **Flow keeps the conversation clear when it looks at pictures.** Pictures opened during a run no longer appear as extra messages from you, and a message you sent with a picture still shows your own words. Results and their ratings stay with the right turn after you reopen the project.
 
-- **Nothing is missing from the Windows installation any more.** Parts of the app that load on demand were absent from the Windows package, so scheduled jobs, the daily briefing, the operator, parts of the live chat, the Buddy chat, the AIPointer chat, Autopilot and skill generation could fail quietly in the background. Every part the app asks for is now in the package, and the build refuses to ship if one is not.
+- **Keys that cannot be opened on this computer are kept instead of erased.** After a backup was restored on another computer, or the key file was lost, saving a setting no longer deletes the stored key. Editing a provider's model keeps that provider configuration too. The provider card says which key to enter again before connecting.
 
-- **Opening a file in Code again reads its latest contents.** A file created after an earlier click now opens normally, loading shows its own state, and filesystem failures name their cause instead of appearing as a deleted file or an empty review.
+- **Normal chat and the first Skales Code turn leave more room for your work.** The instructions sent with every message are shorter, and the rules that shape what Skales does stay in them: it checks before it says something runs, exists or is connected, reads a file you ask about instead of saying it cannot, keeps its working files out of your repository, works through its plan instead of rewriting it, and sends small helper errands to a cheaper model. Attached images still reach it through vision, and Skales Code still shows its steps, file links and Keep or Revert on every edit.
 
-- **Code’s model menu remains usable in very short windows.** Its height stays within the actual space beside its trigger, while the full catalogue remains reachable by wheel and keyboard after resizing.
+- **The chat's full report counts what an undo or an edit removed, like the price under the composer.** Money already spent stays in the total, so Analyze and the composer always show the same figure.
 
-- **Skales Local stays paused when memory is scarce.** The automatic start at launch, a settings change and a chat turn now obey the same memory-pressure hold; Settings and Chat name the reason, and a manual Start can still override it.
+- **Team runs now count in the conversation's price.** The members of a team run and the coordinator's brief and verdict were paid calls that never reached the price under the composer, the phone's figure or the conversation's spending limit.
+- **Code Auto keeps working through a long series of quiet steps, and still stops a run that goes in circles.** A change that stays made counts as progress, such as adding line after line to one file, a series of quick edits to one file, or editing one file after another. Rewriting the same file over and over, sending the same person or address message after message without having learned anything new in between, or undoing the previous change is recognised as circling, and so is starting one background command after another without reading what they do.
 
-- **Vision fallback honours your model answers on cloud providers too.** A model marked as able to see images takes precedence over the configured reader, even when the provider has no installed-model list. Changing that answer applies to the next image turn.
+- **Bundled agents keep their identity when edited.** Their cards still allow edits and copies; Reset restores a changed built-in agent instead of presenting it as a deletable custom agent, and it appears for every changed built-in, including ones changed in an earlier version.
+- **Local voice setup installs through your package manager.** The guide for local voice engines uses pipx or winget instead of running a downloaded installer.
 
-- **Deleted chats leave the sidebar immediately.** Deleting the last conversation clears its cached row, and new conversations appear through repeated delete-and-create cycles without a reload.
+- **Settings search uses the full results area.** No blank strip is left below the results, and the task time limit names its default under its scale, readable in every language.
 
-- **The chat and Flow model groups keep every configured model.** The active choice stays visible at the top; the rest of each provider's catalogue appears alphabetically, including large custom endpoints.
+- **Still emojis stay still in large chat messages.** Only emojis that really have an animation move, and none is left waiting for an animation that does not exist.
 
-- **The model row now fetches live catalogues for configured providers.** Its normal loading path reaches the same server fetch as Refresh, including direct OpenAI, while an unavailable catalogue keeps the curated fallback and names the reason.
+- **Code `/undo` restores files changed by shell commands.** Each command is recorded before and after it runs, and a command left running in the background is sealed when it exits. Undo checks for later edits before restoring a whole turn, including turns that mix shell and file tools; ignored files and files holding keys, tokens or passwords stay outside the record. A command always runs: on a computer without Git, or in a folder too large to record, the Code window says why shell Undo is off there, and a command cut short by a restart never blocks Undo for the turns before it.
 
-- **ComfyUI and AIPointer model choices are alphabetical.** Checkpoints, samplers and fetched AIPointer models sort by their displayed names, regardless of letter case.
+- **Code backups live in Skales' own data, outside your project.** Backups left in the project move there on first use, and making a backup no longer edits the project's `.gitignore`. In a read-only project the old backups stay where they are and Undo keeps working.
 
-- **Fetched model lists remain complete and alphabetical.** OpenRouter no longer drops models after the 200th result, and settings lists order entries by the name shown in the picker.
+- **Flow keeps working after a German next-step announcement.** When Skales says "Ich prüfe jetzt …" in Chat or Flow, it takes that step in the same run. Repeated announcements end with a named no-progress message instead of appearing as a finished result.
 
-- **Private videos and documents from Mobile stay in memory on Desktop.** Chunked uploads keep their privacy across retries and reconnects, and their original bytes remain available for later private turns. Video frames and soundtracks can be decoded without temporary files, including clips whose metadata sits at the end.
+- **Long conversations save without slowing down as they grow.** Changes made to a conversation from outside are still picked up.
 
-- **Private document and archive tools work directly from memory.** A private file can be read in pages, documents retain their structure, and zip or other supported archives can be listed and unpacked into private references. Speech transcription skips local activity and Discover events in Incognito.
+- **A follow-up chat turn checks pictures already in the conversation.** If the selected model cannot read them, the usual question about reading pictures appears before the turn starts.
 
-- **Incognito is clear from the first message on Desktop.** The new-chat screen has the same private composer tint and notice as an active chat, and its first message crosses to the chat through a one-time memory handoff. Private PDFs, Office files, archives and video can be attached without a Workspace copy; video frames are sampled in the window, and voice transcription sends the private flag. The document panel remains below the chat header.
+- **GLM-5.3 text models route pictures through the Vision Provider or show the blind-model question.** GLM-5.3-Flash, FlashX and Flash Preview and the GLM V models, such as GLM-4.5V and GLM-4.6V-Flash, keep their native image input, through Ollama too.
 
-- **Private attachments can stay in memory without temporary files.** Incognito uploads use opaque references for any file type, keep the existing upload size limits, remain available across later turns, and are cleared when their private session is deleted. Ordinary runs cannot read them.
+- **A Code picture described by the Vision Provider is read once.** The image stays visible in the transcript without being sent to the provider again on the next step.
 
-- **Incognito can transcribe a video soundtrack without saving the clip.** The audio demuxer reads the video from memory and streams WAV through FFmpeg pipes, keeping the existing speech provider path available.
+- **Continuing with one agent of a team hands its answer to your next message, in the chat and in Skales Code alike.** The answer shows as one folded line, the model reads it together with what you type next, and the conversation's title and the task Skales keeps in mind come from your own words, never from the agent's answer.
 
-- **Incognito sends no stored personal context and keeps document text extraction in memory.** Saved preferences, standing instructions, relationship state and previous relay context stay out of the prompt; private Office attachments can be read without a temporary file, and private prompt previews are cleared after use.
+- **Unrestricted Auto runs move past a repeated tool call without waiting for a person.** A supervised run still shows the three-choice loop card.
 
-- **Incognito stays private when tools run or a conversation moves to Skales Code.** Private turns no longer emit usage events, Discover activity, presence pings or content logs. Attached and tool-produced pictures and context measurements stay in memory, including later Code turns; private crash details and session pointers are not saved. Ordinary conversations keep their existing history and diagnostics.
+- **The chat reopens only a chat conversation after a restart.** Code work no longer opens in the chat window.
 
-- **Desktop builds work without an optional SSH crypto binding.** Electron keeps its hard runtime and terminal checks, while SSH and SFTP use ssh2's JavaScript crypto when the native binding is absent. Windows and Linux builds use a supported Node version, and portable packages omit OpenSSL and its notices.
+- **"Send now" in the chat delivers the selected unread line exactly once.** After Stop, each waiting line can be sent on its own, the same way as from the phone, and a start that fails says so on screen.
 
-- **The Desktop window opens on a different local port.** When the usual port is occupied or a separate test profile chooses another, Electron now sends its access token to the final port and loads the app instead of showing the remote-access token screen.
+- **Flow planning and chat titles count toward the conversation's cost, without appearing as lines in the conversation.** What Flow asks and decides before a project starts is paid for once, by the project that uses it, and the planning of a project that was never started stays visible on Flow's home page. Naming a conversation adds its price to the total, even when the proposed title is not used, and no longer moves the conversation to the top of History.
 
-- Job status, cancellation and event routes await their route parameters as required by Next.js 15.
+- **Helper calls through OpenRouter show what they actually cost.** Flow's planning, the other small helper calls and reading a page in the browser carry the price OpenRouter reports into the conversation's total. A call reported as free stays free, and a call without a reported price stays marked as unpriced.
 
-- Opening an Extensions subpage keeps its title and Back control visible. Deep links to a specific add-on still focus that card.
+- **Large files from the phone stream to the desktop.** Video, documents and course packages from the paired phone travel over the relay at any size and are written to the workspace as they arrive. The desktop confirms what it has written, so the phone never sends faster than the desktop takes it and its progress bar shows what has actually arrived. The desktop checks for room before the first byte and a refusal says how much space is free; a transfer cancelled on the phone is removed at once; a very large document stays in the workspace for Skales to read in parts instead of being loaded whole. Completed uploads survive a desktop restart until the same phone uses them in a chat turn; partial files left by a restart are cleaned up. Incognito keeps its named in-memory limits.
 
-- New Spanish and Portuguese extension text keeps its natural accents; the French plugin recovery notice uses the same informal address as the app.
+- **An oversized Incognito attachment names the size limit.** It no longer ends in a generic server error.
 
-- Old plugin, custom skill and custom widget links in chat, toasts and surface links open their Settings subpage directly, keeping the current page underneath. Their routes remain explicitly declared as legacy redirects.
+- **Long audio files can be transcribed.** A recording longer than one request to the speech service is cut into timed parts and put back together with its timestamps, including phone recordings in M4A and MP4 that could not be read before. Audio files attached in the chat, on the new-chat page and in Skales Code travel to this computer in pieces, so their size no longer matters, and a full disk or an upload that broke off is named on screen.
 
-- Navigation guidance and validation follow the mounted Extensions subpages and current sidebar groups; skill uploads, plugin authorship and Widget AI notices keep their existing shared-panel checks. Sidebar validation also follows the shared Add-ons subpage and its focused legacy route. Detailed navigation help names the new subpages while the always-loaded capability text stays within its existing budget.
+- **Course playback controls now follow the course language in all twelve supported languages.** Navigation, task hints, help, and completion messages no longer fall back to English for other course languages.
 
-- Desktop-only extension rows wait for the client bridge before rendering, keeping the initial Settings render consistent.
+- **Voice notes and private text files are no longer rejected by hidden size ceilings.** Existing file and transcription tools can read or save what was accepted at upload, and a recording too large to send in one message says so, with the way that works.
 
-- **Settings controls keep the values you choose.** Companion and Conscious switches, the WhatsApp signature, Discord, Slack and Telegram connection details now save and reload correctly. Drafts in instructions, Brand Kit, knowledge backend, MCP and Discover ask before Settings closes. Deleted Brand Kit assets vanish immediately, and Discover reads the saved settings file.
+- **Cloud video generation has a Stop button in Studio.** It sits with the running cloud video, stops that job at the provider where the provider allows it, and names any job that may keep running or charging; the next video starts with a fresh Stop.
 
-- **Settings reports failed saves and keeps the last slider change.** AIPointer, Buddy skin and webhook failures stay visible; compaction and AIPointer sliders flush when Settings closes. Lio accepts an empty project folder, Calendar opens with Calendar Sync, and WordPress shows the same connection state as its badge.
+- **The Studio video editor sees media uploaded through Chat and Flow.** Those video and audio files now appear beside gallery media.
 
-- **A crashed plugin reopens at a safe starting view.** Skales remembers that its renderer died, clears only the last view on the next opening, and explains the recovery while keeping saved plugin work.
+- **Studio finds every unfinished editor job after a reload.** The making list and failed video recovery show every job that is still running or waiting for you, and stay quick however many exports you have made.
 
-- The chat document panel now starts below the header even when Incognito and provider fallback banners are visible. Banner spacing aligns with the header.
+- **The computer control comet stays on its target when the app is zoomed.** Changing the app's text size no longer moves the pointer cue.
 
-- **AIPointer follows the cursor and its idle bubble responds at every app size.** Its transparent overlay and Buddy use a separate zoom host. Hover, outside clicks and screenshot selections convert between screen points and CSS pixels consistently, while Buddy keeps following the app theme and custom accent.
+- **Computer Use can drag between two points from the same screenshot.** The new action holds the mouse button through the movement and reports a platform error on failure.
 
-- **Narrated courses open safely after voicing.** The speech service now saves waveform peaks beside each audio file. E-Learning draws those peaks without decoding audio in the app window, and older recordings show a duration and cue bar.
+- **Flow keeps every file selected for a new project.** Additional attachments no longer disappear when many files are chosen at once.
 
-- **Diagnostics names a dead renderer.** A renderer crash now shows its reason, exit code and page in the exported report.
-- **Background job status and event routes build with Next.js 15.** The handlers resolve promised route parameters before validating or looking up the job.
+- **Code search now finds text in UTF-16 files, including PowerShell output.** The file list and search agree on those files, and ordinary words containing "dd" no longer trigger the raw-disk command warning.
 
-- **Audio decoding works again on macOS Monterey.** The desktop runtime uses Electron 43.7.0, the last supported major line for macOS 12. Plugins, Studio scenes and widgets can decode audio normally on the new runtime, while older runtimes keep the visible error fallback. The Code terminal uses an ABI-independent native module with executable launch helpers. The browser automation build check recognizes the bundled Node 24 runtime.
+- **A video job that fails on a broken file says so and lets you act.** A video cut off during an upload used to sit under "Continue where you left off" as "waiting for you" for ever. The sighting now checks the file first and fails at once as "Failed: file incomplete or damaged", with the reason, and offers Upload the file again and Discard, on the Flow entrance and in the video editor. "Continue" lists only work that can go on; a job that stopped when Skales did no longer spins as running, and jobs already stuck this way are shown as failed without anything in your data being rewritten.
 
-- **SSH keeps native encryption on the updated desktop runtime.** A reproducible rebuild links its crypto module with OpenSSL and updates the CPU detector for Electron's ABI. The build automatically verifies both the development dependencies and the standalone copies against the real desktop runtime; the additional library's license travels in the notices.
+- **Flow no longer carries your memory into a design.** A Flow project got your name, your memory index and your standing instructions on every turn, and they turned up in the pictures and the project notes. Flow now works from the brief and the project files unless you switch on My memory, and a Flow conversation no longer writes into your memory or is read into it later.
 
-- **Embedded audio reports a readable error instead of crashing the desktop app.** Plugins, HTML previews, Studio scenes and widgets avoid the unsafe native audio decoder. Audio playback and host-generated waveforms remain available.
+- **A Flow answer that still ends early says so.** When an answer reaches the model's output limit even after Skales asked for the rest, Flow shows the note under it, and lines that arrive after the run ended appear without reopening the project.
 
-- **An action you approved on a plugin page now runs.** Pressing Allow on a plugin's approval card could come back as "no longer valid" and ask again instead of doing the thing.
+- **A spoken line during a running turn is answered.** Speaking to Iris while the same conversation was working wrote the line into the transcript and nobody ever answered it; it now joins the running turn like a typed one.
 
-- **An imported plugin arrives complete.** A plugin installed from a file kept its page but lost the tools it brings, the layout of its pages and its triggers.
+- **A scheduled job that keeps failing says so in the chat.** After three failures in a row a job is paused as before, but now the chat you have open gets one line with the last error and where to fix, switch back on or delete it, and the notification actually arrives; before, the pause happened in silence.
 
-- **The plugin check reads the whole page.** It now understands every call a plugin page can make and reads the page's own scripts too, so a working page is no longer reported as calling something unknown, and a tool the plugin brings no longer counts as missing from its list.
+- **Settings opens on General again.** Opening Settings from the gear, the tray or the /settings command no longer lands on the page you left last time, such as Plugins. A link to a particular setting still goes straight there, and a reload while Settings is open comes back to where you were.
 
-- **Testing a server that signs in with a key works from the FTP card too.** The test reads the stored key and its passphrase, the same way it reads a stored password.
+- **The Settings search has one clear button.** A second one drawn by the browser stood next to it.
 
-- **Groq speaks again.** Its old voices were retired. Skales now uses Groq's current speech model and passes on Groq's own message when the model first has to be enabled in the Groq console.
+- **With a decision model on, browsing asks it on every click.** The chat model clicks by reference, which used to bypass the decision model on every click that was not binding; now each click is checked against what the element is called, and what the decision model read comes back with the step.
 
-- **ElevenLabs says when the account has no credits left** instead of showing only an error number.
+- **Install Chromium works without Node.js, shows its progress and can be cancelled.** The browser download that ships with Skales could not start in an installed app, so every press fell back to npm: on a computer without Node.js it failed with an npm message, and on one with Node.js it ran npm inside the Skales program folder, which removed files the app needs to start. The built-in download now runs on its own, the button shows which part is loading with megabytes and a percentage, Cancel stops it and everything it started, and a failure shows the download's own reason. npm is only tried when the built-in download is missing from the install and npm is actually there, and then in a folder of its own inside your Skales data, never in the program folder. No install process keeps running after Skales is closed.
 
-- **The cost of OpenRouter's speech voices is shown** instead of "unknown".
+- **"With GPT Image" works without an OpenAI API key.** Asking for GPT Image or DALL-E with only a ChatGPT sign-in failed with "OpenAI API key required", because the sign-in does not include OpenAI's image service. With an OpenRouter key the picture is now made with GPT Image through OpenRouter, the same way videos already were, and the reply says so; DALL-E, which OpenRouter does not carry, becomes GPT Image 2.5 Flare and the reply names the change. Without either key the reply says which key to add. GPT Image 2.5 Flare and Sunburst are in the model lists.
 
-- **Unpacking a large archive no longer stops at two thousand files.** An archive is checked as a whole before anything lands on disk. Entries that would land outside the target folder, links, and files that already exist (when you ask to keep them) are each counted and named.
+- **Stop ends a video job that is still being made.** When a video was being generated at a service, Stop ended the chat turn but Skales kept waiting for the clip for minutes. Stop now ends the wait at once, in the chat and in Flow. Where the service can cancel a job (Replicate, Runway, fal.ai) the job is cancelled there too; where it cannot (Google Veo, Kling, OpenRouter, Atlas Cloud, Skales IQ), the reply says that the job keeps running at the service, may still be charged, and will not be collected.
 
-- **Moodle reports a Flow course as completed.** A course exported from Flow never told the LMS it was finished, so every learner stayed "incomplete" forever. It now reports completion by the rule chosen at export.
+- **Share a window says why when there is nothing to pick.** In the Buddy a click on the window button could do nothing at all when the system returned no window or the question failed, which happened on Windows. The Buddy and the chat now say "No windows found" with the reason: what the system reported, that Skales is the only open window, or, on a Mac, that the Screen Recording permission is missing.
 
-- **The course package is what the preview showed.** Libraries, fonts and anything a page loaded from the internet now travel inside the package, so a course looks the same in the LMS as it did in Flow, also without a network connection.
+- **A damaged installation says so before it starts.** Skales now checks at every start, before its server runs, that the files it needs are in its program folder. When some are missing, a screen says the installation is damaged, names what is missing, and its download button fetches the installer for your system from the current release, with your data untouched; a server that fails to start because a part of the program is missing shows the same screen instead of a short error and a quit. Files that differ from the ones that shipped are listed in Diagnostics and do not stop the start.
 
-- **A course with several pages keeps its session.** Following a link from one page to another ended the LMS session. The pages now open inside the course, and the session lasts until the learner leaves.
+- **Diagnostics show why the server failed and which parts of Skales are not running.** A crash now shows the line that names the error, not only the last lines, which were usually a list of file paths. A background job that could not load a part of the program used to log it as non-fatal and carry on silently; each one is now listed under the installation, with the job it stopped and how often.
 
-- **A learner who stops halfway comes back to the same place, and quiz answers show up in the LMS reports.** Time spent, the last position, the progress and each answer are reported, and the session is closed properly when the window closes.
+- **The Mac updater no longer damages a downloaded disk image.** When Skales was started again while the update's disk image was open in Finder, it downloaded the same update a second time into the open file, and copying Skales out of it then failed. A download now goes into a file of its own and takes the installer's name only after it verified; a version that is already downloaded and verified is not fetched again; an open disk image is never written. When the installer was already opened and the old version is started again, it says the update is waiting: move Skales into Applications, or open the installer again from there.
 
-- **A course starts the LMS session only once.** A second start is refused by strict systems.
+- **Windows updates no longer start over a running Skales.** When a Skales process of the installation outlived the shutdown before an update, the installer used to start after ten seconds anyway and replaced files under a program that was still running, which could leave the installation broken. Skales now ends those processes itself, and when one cannot be ended it does not start the installer: it stays open, names the process, and says how to end it.
 
-- **Handout PDFs, lesson videos and downloads stay in the course.** Only earlier exports of the same project are left out of a package now, never a kind of file.
+- **An update is announced once.** A new version showed up as a banner on the dashboard, a notice, a dialog and the update chip at the same time. The chip in the corner and the dialog once the update is downloaded remain; the chip also says when a version comes with new licence terms.
 
-- **A deck reports its slides and completes on the last one, and the start page may sit in a folder.**
+- **Large attachments arrive whole.** A phone video, a recording or a big archive attached in Flow, the chat or the Code window could arrive cut off and be kept like that, so a video would not open. Files now travel straight to disk at any size, from the desktop window and from the web UI alike; one that arrives incomplete is refused with how much came instead of being kept half, and the disk is checked for room first. When Flow finds a recording it cannot open, it says so and asks for it again instead of building the film from generated stand-in footage.
 
-- **Replacing a course in Moodle keeps every learner's progress.** A course keeps the identity of its first export in every later one, and a removed slide sends a returning learner to the slide that followed it.
+- **The preview's own window no longer hides the course title under the window buttons,** and closing it no longer leaves a row of "That preview is not open any more" errors: the preview comes back into the page, it stays inside its slot instead of covering the page's toolbar or a message above it, and the same error no longer stacks.
 
-- **The course package no longer names schema files it does not contain.**
+- **Flow asks its questions once.** Answering the questions before a build is recorded first, so a reload, a second window or a second click can never start the build twice; your answers stay readable in the conversation, and long questions wrap instead of pushing the card apart.
 
-- **A plugin page whose script contains certain dollar-sign sequences loads.** Such a page could come out cut in half and show nothing.
+- **Flow starts on Auto.** The start page no longer preselects Prototype, so an attachment no longer ends up in a prototype: Auto picks the kind of result from what you write and attach - a recording always leads to video - and a mode or template you pick yourself stays picked.
 
-- **A plugin that packs a course for a corporate LMS keeps that LMS.** The name of the LMS was treated as a file name, so the course was packed for the default one.
+- **Skales Code wears your accent colour the moment you pick it.** An accent chosen in Settings while the Code window was open only arrived after the theme itself changed. It now follows at once, after a restart and in every theme that takes an accent.
 
-- **A backup without secrets leaves the signed-in browsers at home.** The browser the agent drives and the one that publishes to Moodle keep the sessions of the sites they signed in to, so they now stay on this computer. A pasted SSH key and its passphrase are left out like a server password, and a backup with secrets carries them so the server profile signs in on another computer.
+- **Carrying on a conversation with a picture in it asks first when the model cannot read pictures.** The question the first picture gets, switch to a model that reads pictures or continue with a description, now also comes when you continue a Skales Code session or a phone conversation whose history holds a picture, instead of the turn failing on the picture.
 
-- **A plugin tool that needs no model is never reported as needing one.** On a computer with no AI provider, any plugin tool that failed was reported as "needs a model", even a course test that had run to the end and produced its full report, or a package check on a file that was missing. Only tools that do their work with a model now get that answer, and only when nothing else on the computer could do that kind of work. Every other tool reports its own result and the reason it gave.
+- **A picture is described once.** When your model cannot read pictures and the Vision Provider describes them, each picture is described once instead of again at every step of every turn, so a long run no longer pays for the same description over and over.
 
-- **Testing a course no longer fails one that was already finished when the learner left.** A course that counts as complete the moment it opens correctly clears its "suspend" flag, and the test marked that as an error. It now accepts it and explains that leaving halfway and resuming were never tried, and why. When a page has slides the course runtime does not recognise, both the packer and the test say how to mark them. A failed test now names the checks that failed. If nothing could step through a course without the Skales runtime, the test says to pass steps. The E-Learning plugin shows the name of each check and marks hints as warnings, not errors.
+- **Long Skales Code sessions stay fast.** While an answer streams in, only that answer is redrawn, not every turn above it, and turns far above the screen are drawn only when you scroll to them.
 
-- **A ChatGPT request the service refuses now says why.** When the subscription turned a request down (a limit reached, too many requests at once, a request too large for the model), the chat and the helpers only said the connection had closed. They now show the reason the service gave.
+- **The Skales Code file column shows everything the session touched.** Files it created, changed and deleted are marked A, M and D, also in folders git ignores and in folders that are no repository, a folder holding a change is marked too, and the column opens on Changes whenever there are any. Dependency and build folders are left out.
 
-- **Helpers on a ChatGPT subscription are no longer cut off while they think.** A model that reasons silently for a long stretch before its first word was stopped as if the connection had stalled.
+- **Stop in Skales Code acts at once.** Pressing Stop while an answer was streaming could wait seconds behind the window's own background reads before it even arrived. Stop now travels on its own, the window says "Stopping" immediately, and it only shows the session as stopped once nothing of it is still running; if a step is still finishing, the window says so instead of pretending it has stopped.
 
-- **A failed helper shows its whole reason.** The helpers panel wraps the reason instead of cutting it short.
+- **Skales Code opens faster.** The review column, the preview, the browser, history and the command palette load when you first need them, fetched quietly in the background, and the clock that counts a run's minutes no longer redraws the whole window every second.
 
-- **Saving in Settings no longer undoes changes made elsewhere.** Settings used to write back everything it had loaded when it opened, so a key saved in the chat, a folder shared in Skales Code, a routine changed from the phone or a buddy picked in the chat could quietly be reset. Every change is now written on its own, field by field.
+- **Patches apply without Git.** The patch tool needed Git installed and failed on a Windows machine without it. It now applies patches on its own, in the usual diff format and in the block format several models write, finds each change even when the line numbers are off, and keeps Windows line endings and UTF-16 files as they were. Git is only needed for a patch that carries binary content, and the message says so.
 
-- **The active provider stays the one you chose.** Opening and saving Settings could switch it to Skales IQ; it is now read from disk and changed in one place only, whoever changes it.
+- **Edits land in Windows files.** A change to a file with Windows line endings was reported as "not found" whenever it spanned more than one line. Edits now match regardless of line endings, keep each line's own ending, and also find a block that differs only in tabs against spaces or in a character or two. A file with a byte-order mark or in UTF-16 keeps its encoding.
 
-- **A field you empty stays empty.** Clearing a key, an address or a choice in Settings now really clears it instead of keeping the old value.
+- **Files written by PowerShell are read as text.** Output that Windows PowerShell 5 redirected into a file was refused as a binary file. Those files are now read as the text they are, and the answer names their encoding.
 
-- **Keys are no longer readable in the Settings window.** A saved key shows as saved and can be replaced or tested; the key itself stays on disk and is never handed to the window.
+- **Sub-agents no longer stop on an empty Skales Local.** A sub-agent meant to run on a model on this computer went to Skales Local even when no model was chosen there, and stopped on "no model is chosen". It now only goes to a local runtime that has a model ready, and otherwise runs on the model the conversation uses, with a note saying why.
 
-- **Closing Settings no longer stops what it started.** A model download, a sign-in to an MCP server, an Outlook or social sign-in and a WhatsApp pairing keep running when the window closes and are still there when it opens again.
+- **Paths with spaces in scripts are named.** When a script hands a folder like "Star Wars Endspiel" to a program without quotes, the result now says which line split the path, instead of leaving only the program's "invalid path" to go on. PowerShell scripts are written so that a folder with an umlaut in its name reaches the program intact.
 
-- **Every link into Settings opens the right place.** Buttons in the chat, the tray, AIPointer, Iris and the buddy used to land on a page that no longer existed or on the top of Settings; they now open the category and the row they mean.
+- **No more warning noise for the search tools.** The log no longer warns on every call to the file search tools, and every tool the assistant can call has its permission level set.
 
-- **Testing a voice list or a knowledge store with a saved key tests the key.** Both used to send the placeholder instead of the key.
+- **Videos through OpenRouter finish.** A clip made through OpenRouter was asked for with the prompt alone, so the ratio and length were lost, and the finished file was never collected, so the wait ran out after ten minutes. Ratio, length, resolution and sound now go with the request, fitted to what the model accepts, and the file is fetched when the job is done.
+
+- **Burned-in captions have a readable size.** Captions came out about four times too large, a caption line could fill a third of the picture. They are now sized to the frame, and in a vertical video they are bold and sit above the buttons of the apps the video will be watched in.
+
+- **The server stays up when a page gives up on a request.** When a window closed a connection while sending, the server could end with "aborted" and restart, taking every open answer and background job with it; four times in twenty seconds on one machine. That case is now recorded and survived.
+
+- **A new Flow session starts without a brand kit.** The first saved kit used to be switched on for every new session; now a kit is used when you pick it.
+
+- **Studio and Flow render films again that stood still but were refused as "not reproducible".** Before a render starts, Skales visits some frames twice and compares the two pictures, to catch a composition whose picture depends on the frame shown before instead of on the frame number. That check only looked at pixels, and Chrome sometimes draws an unmoved image a little differently the second time, because it scaled it along another path on the way there: a logo that stood exactly where it belonged came back up to 12 shades apart over a few hundred pixels, and the whole film was refused. The check now also asks the page what it shows, where every visible element stands, its size, transform, opacity, filters, text and canvas content, on both visits. If the page stood still, a small difference in the picture is the browser drawing, and the render goes ahead. If an element moved, the render stops as before, and the message now names that element and what changed, so you know what to fix in the composition. Elements a composition only keeps for measuring, which are never drawn, do not count.
+
+- **The last answer of a long run arrives whole.** A long answer is shown from its first word while it is written, instead of starting somewhere in the middle, and an answer the model cuts off at its output limit is asked for the rest until it is complete; if it still ends at the limit, a line under it says so. The price of every part lands on the one answer.
+
+- **A stop no longer loses what you queued.** Messages sent while a run worked stay visible after Stop: a line the run had not read is marked "not delivered" in the log with Send now and Discard, and one held for after the turn stays in the list, paused.
+
+- **A refused command says which rule refused it and where that rule is lifted.** Every shell command stopped by a safety rule names the rule and the Safety Mode that allows it, and words like shutdown, reboot, halt or wipe only count where they are the command itself, not inside a search, an echo or a commit message.
+
+- **A sub-agent that declines its errand no longer counts as done.** A helper that refuses in German, or says it cannot inspect or trace the code, is recognised at its first step, stops there, and comes back empty with its own words and what it cost, instead of wearing a success tick.
+
+- **A plugin page that fails says why.** When a plugin page's own code stops with an error, the plugin view names the error and the file it came from above the page, instead of leaving its loading placeholder on screen with no explanation.
+
+- **A slash command in the Code window runs when you pick it.** Enter on a command that needs nothing more, such as /cost, /diff, /undo or /stop, runs it straight away, and so does a click on it in the menu; a command that takes text, such as /commit, still waits for it, and Tab only completes.
+
+- **Esc closes every dialog in the Code window.** The context view from /cost, the rename and delete questions, the agent log, the clone, reference and skills pickers, the pull request dialog and the full-page preview all close on Esc and put the cursor back in the message box. Esc with a dialog open never also stops the running turn; a menu open inside a dialog closes first.
+
+- **Skales Code says when no provider is connected.** With no API key saved, the Code window shows the settings hint with Open Settings above the message box, the title bar reads "No provider connected" instead of naming a provider with a green dot, and no model is named until one can answer. Adding a key in Settings takes the hint away without a reload. The row of controls under the message box now wraps onto a second line instead of cutting off its last controls in narrow and split windows.
+
+- **Flow no longer shows a template that Auto is going to ignore.** Switching back to Auto after picking a template clears the template from the start page, because Auto chooses the template itself; picking a template again leaves Auto.
+
+- **A Code session you open again starts at its latest answer.** Reopening a session from the history or after a restart could leave it scrolled to the very first message; it now opens at the end, stays there while late content lays out, and still stops following as soon as you scroll up to read.
+
+- **Emojis without an animation are drawn still without a failed download.** Skales knows which emojis have an animation and no longer asks the network for the others, so the default profile glyph stopped producing a failed request on every page.
+
+- **Skales Code no longer writes a file into your repository to map it.** The map of a project's files and symbols is kept in the Skales data folder instead of a .skales-backup/repo-map.json in the project, so it no longer appears in your git status or in the review of what a session changed. A map left there by an earlier version is removed the next time the project is opened.
+
+- **A code answer that ends in a call is shown, not swallowed.** A Python, JavaScript or shell script whose last line was `main()` or `run()` was taken for a tool call that never ran: the real answer disappeared and a second turn only said it was a false alarm. Code in a fenced block is now always the answer, and a bare call only counts when it names a real tool.
+
+- **Undoing a turn no longer takes its cost off the meter.** /undo, a rollback, an edited question, a deleted answer or a compacted history used to remove the price of the removed turns too, so the session total dropped and a cost limit read less than was actually billed. Money already spent now stays on the session, in the chat, in Code and on the phone.
+
+- **Stop in the chat no longer calls waiting lines delivered.** Lines typed while a turn worked flashed as delivered and vanished when you pressed Stop, although the model never read them. They now stay listed as not delivered, with Send now and Discard, exactly like in the Code window, and after a reload too.
+
+- **Write and Edit rows in Code no longer start with a line of internal bookkeeping.** A code the runner keeps to remember which changes already happened was printed at the top of every Write and Edit row; it is now hidden there, in the chat, in Iris and on the phone.
+
+- **Reading a Code session from the chat counts the files it lists.** For a folder inside a larger repository the summary said "Changed: 0 file(s)" next to five changed paths; the number now comes from the same list, and the line counts are only shown when git sees every listed file.
+
+- **The review panel of a folder inside a bigger repository no longer offers that repository's other work.** It names the repository the folder belongs to, says when that repository ignores the folder, offers no pull request for the whole repository, and under Parallel work lists only the checkouts this session started. Removing one asks first, and a checkout started elsewhere can no longer be removed from here.
+
+- **Jev routes each turn once, only among models you have switched on, and from the start screen too.** With the Advisor Strategy off, its planning and executing models were still offered as choices; they no longer are. The model hint now also appears while typing on the new-chat screen, and a turn that continues (a cut-off answer, a steer, a line you add) keeps the model Jev picked instead of asking and paying again.
+
+- **A specialist from the agent library works under the same helper card as any sub-agent.** Handing a task to a library specialist showed no helper card while it worked, and afterwards its answer appeared as raw markdown in a tool row, also after a reload. The card now appears during the run and after it, the answer is rendered, and the approval says how the specialist runs, as it does for Skales Code.
+
+- **A /btw side question stays beside the work.** Asked while a turn was working, its answer split the turn's steps in two and could reach the model on the next turn through Code, a resumed run, Telegram, WhatsApp or the Buddy. It is now drawn after the turn it was asked in, never enters what the model reads, and may also answer from general knowledge, not only from the conversation.
+
+- **The cost of a turn stands on its answer, not on an empty reply.** What the model router or a continuation request cost was written as an empty message that then looked like a cut-off reply. It is now added to the turn's answer; only a turn without any answer keeps a separate cost row, which is never shown as a reply.
+
+- **The chat no longer sits and waits for a Code session.** After handing work to Skales Code, the assistant watched it with pauses and repeated status checks until the loop guard stopped it. It is now told that the session works on its own, a status check while it works says to answer instead of asking again, and the chat gets a short line with the link when the Code turn it started has ended.
+
+- **Reloading Flow opens the project you were in.** The open project is now part of the window's address, so a reload or a restored window lands in that project instead of on the start page.
+
+- **Four small fixes from the release check.** The approval bar says "1 action needs" and "3 actions need" correctly in every language; Flow shows the price next to its token count like the chat and Code do; opening Settings from the chat no longer lands on an older Code session, because the Code window now remembers its own last session; and a /refine that finds nothing to keep says what the look-back cost.
+
+- **Lio AI shows the same lion mark everywhere it appears.** The sidebar, Flow's doors, Settings and the Add-ons catalog used to draw it differently, once as an unrelated shape and once as a generic icon; all of them now draw the one mark.
+
+- **Switching Flow's mode back to Auto closes that mode's own extra options.** Opening Motion's style picker and then choosing Auto used to leave it open on screen; picking Auto, or any other mode, now closes it, including after switching back and forth several times.
 
 ### Changed
 
-- **Extensions opens each manager on its own Settings subpage.** API connectors, MCP servers, AIPointer, Add-ons, Plugins, Custom Skills, Custom Widgets, Webhooks and Lio AI appear in order. Existing routes reopen the same managers; the sidebar keeps installed plugins and widgets, and saved management pins migrate without touching installed items. Add-on names share the translated catalogue, Cockpit describes its background runner, and Guide links open their exact settings rows.
+- **The Type animation presets look the same in preview and export, every time you seek.** Cascade and Flip Board turn around their own edge, Glitch splits its colours both ways, a looping entrance leaves on its own curve, and a one-shot preview rests for a moment before it plays again. The badge on the featured set reads in your language.
+- **Helpers get only what they need.** A team member, a plugin's own agent and a helper step inside a Flow run now work from their own task without your name, your standing instructions or your memory, unless you ask for them. The title, the router and the background review already worked this way and stay so.
 
-- **A change you make while a turn works on the same file is not lost.** The running turn is told about it, and if it writes over it anyway, your change is put back when the turn ends. When the element it changed is gone, putting it back becomes the first request in the queue.
+- **Flow has no house style any more.** Without a Brand Kit or a style pack, each project is offered a few design directions chosen from its brief and away from the looks of your last projects, and names the one it took. Three similar briefs no longer come back in the same dark look.
 
-- **Flow checks its own result once the queue is empty.** With requests waiting, the next one runs first and the check waits for the last result.
+- **Your name goes into a Flow design only when the brief asks for it.** "My showreel" or "our company" brings your name or brand in (with memory on) or a marked placeholder (with it off); "a showreel" stays fictional, without your name and without Skales.
 
-- **Plugin packages up to 64 MB install.** A plugin with a voiced example course, fonts and voice samples no longer hits the old 8 MB ceiling, and one file a page stores or you pick may be up to 100 MB. Downloads from the plugin directory get more time to arrive.
+- **Settings sections have headings you can find.** Every section of a category starts with its name, its icon in the colour of its category and one line saying what you find there, so a long category no longer reads as one wall. The category list carries the same colours. In the Flat theme, which has no icons, the colour is a short bar beside the heading.
 
-- **A plugin's model use counts against your money limit.** Model answers and agent runs from a plugin page count on that plugin's meter for the day and stop at the limit set under Settings > Goals.
+- **Long Settings categories are shorter.** Skales Local, Images & Video, Model profiles, Web search, Places & GIFs, AI labelling, Trash and Network each stand as one line with its own page, and Extensions is one list, each line saying what it holds. A link to one of them opens its page directly.
 
-- **A plugin writing a document or a course package into its own folder no longer asks every time.** Packing, unpacking, documents and exports that land in the plugin's own data folder run the way the same tools run in Auto inside a bound project folder. Writing into the plugin's own pages still asks, and publishing, sending and deleting always do.
+- **Iris is a sound wave everywhere.** The sidebar, the Settings section and the add-on card show Iris Orbit as a sound wave, and the eye belongs to incognito alone. The chat start page has a button to talk with Iris Orbit right of the incognito eye; the chat header hands a conversation to Iris with the same sound wave. On an incognito chat both stay closed and say why, because Iris keeps its own history.
 
-- **An exported plugin package and a package built from a plugin folder come from the same writer**, so both carry the same file list, checksums and signature.
+- **Plugin pages have no second header.** The app's own header and back arrow above a plugin's page are gone, since the page has its own. "Give a job" for a plugin with an agent now sits in the line under the page and in its right-click menu.
 
-- **Auto also runs Spotify playback, new or appended Obsidian notes and a WordPress cache flush without asking.** All three are undone easily or change no content. The rest of those integrations still asks.
+- **Setting up an API connector asks first.** When the assistant scaffolds a connector to one of your services from its documentation, you now confirm it on the permission card before it is saved.
 
-- **Settings is one window with ten categories.** General, AI & Models, Assistant, Memory, Voice, Channels & Devices, Accounts & Services, Extensions, Security & Privacy and System, with the same names and icons as on the phone, a search that finds every row, and a Standard view that hides the rows for experts. It opens over the page you are on and closes back to it.
+- **Built-in agents work like specialists.** The Code Assistant, Data Analyst, Strategic Planner, CTO, Research Analyst and Project Manager, most roles of the team presets and the agents of the organization templates now run on detailed specialist prompts from the open agency-agents library, and they answer in the language you write in. Every such card says where its prompt comes from, with the licence and a link. A prompt you changed yourself stays exactly as you wrote it, and a built-in agent you only pinned a model on picks up the new prompt and keeps your model.
 
-- **Settings takes effect at once.** Switches, choices and sliders apply the moment you change them, text fields when you leave them. Keys, accounts and connections keep their own Connect or Save button with a clear state beside it.
+- **The sound wave is the chat's one voice door.** The separate microphone mode in the chat header is gone from the start page, open chats, incognito and the remote view; talking to Skales by voice is Iris Orbit, behind the sound wave. With the Iris Orbit add-on switched off, the sound wave shows how to turn it on in Settings instead of opening another voice mode. Iris Orbit stays closed in incognito chats.
 
-- **Every account, service and messenger is one row.** The row says whether it is set up; tapping it opens its own page with the form and the test, and Back returns to the list.
-
-- **Icons instead of emoji throughout Settings.**
+- **Giving a plugin a job happens in the line under its page.** The window that opened over the page is gone; the right-click entry switches to AI does it and puts the cursor in that line.
 
 ### Removed
 
-- **The Save Settings button.** Nothing in Settings waits for it any more. A provider card with a key you have not saved yet asks before the window closes.
+- **Call Mode is gone; Iris Orbit is the one way to talk to Skales.** The phone button in the chat header and its switch in Settings are removed. Talking over an answer to interrupt it is Iris Orbit's Duplex setting under Settings, Voice. A saved setting that had Call Mode switched off keeps the microphone closed until you choose Duplex there; nothing else changes.
